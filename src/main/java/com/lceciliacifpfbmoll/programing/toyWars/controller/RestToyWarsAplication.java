@@ -32,6 +32,7 @@ public class RestToyWarsAplication {
 
     @PostMapping("/getStats")
     public List<Estatus> getStatsRest() {
+        return
     }
 
 }
