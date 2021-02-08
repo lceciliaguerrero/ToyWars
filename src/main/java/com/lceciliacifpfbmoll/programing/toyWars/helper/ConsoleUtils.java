@@ -21,4 +21,5 @@ public class ConsoleUtils {
     public String getLectorNextUpperCase() {
         return lector.next().toLowerCase().trim();
     }
+
 }
