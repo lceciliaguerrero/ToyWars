@@ -3,7 +3,7 @@ package com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.DoActions;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Gender;
 
-public abstract class LifeBeing implements IActions {
+public abstract class LifeBeing implements DoActions {
     //Atributos privados no estaticos:
     private Long identification;
     private String name;
