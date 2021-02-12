@@ -2,15 +2,18 @@ package com.lceciliacifpfbmoll.programing.toyWars.controller;
 
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Estatus;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 
 @RestController
+@RequestMapping(value = "/rest")
 public class RestToyWarsAplication {
     @PostMapping("/getActions")
     public void getActionsRest() {
+
     }
 
     @PostMapping("/new")
@@ -32,7 +35,7 @@ public class RestToyWarsAplication {
 
     @PostMapping("/getStats")
     public List<Estatus> getStatsRest() {
-        return
+        return null;
     }
 
 }

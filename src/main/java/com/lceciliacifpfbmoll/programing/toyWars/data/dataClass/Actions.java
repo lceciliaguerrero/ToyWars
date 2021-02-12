@@ -4,9 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 public enum Actions {
     //Constantes del actions de lifeBoing
-    DORMIR, CORRER, COMER;
+    ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERROR, JUGAR, MORIR;
 
-    //Methods
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
     //toString();
     @Override
     public String toString() {

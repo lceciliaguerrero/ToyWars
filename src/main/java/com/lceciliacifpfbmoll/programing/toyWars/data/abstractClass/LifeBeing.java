@@ -10,7 +10,7 @@ public abstract class LifeBeing implements IActions {
     private Gender gender;
     private Integer points;
 
-    //Constructores (alt + insertar)
+    //Constructores (alt+insertar)
     public LifeBeing(Long identification, String name, Gender gender, Integer points) {
         this.identification = identification;
         this.name = name;
@@ -63,7 +63,8 @@ public abstract class LifeBeing implements IActions {
         this.points = points;
     }
 
+
+
     //-------------------------------------------------->> Methods <<--------------------------------------------------
-    //options();
-    public abstract void options();
+
 }

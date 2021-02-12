@@ -1,16 +1,15 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public interface DoActions {
-
-    Actions actionsComer = Actions.COMER;
+    Actions actionsAlimentar = Actions.ALIMENTAR;
+    Actions actionsCaminar = Actions.CAMINAR;
     Actions actionsDormir = Actions.DORMIR;
-    Actions actionsCorrerv= Actions.CORRER;
+    Actions actionsEnfermar = Actions.ENFERMAR;
+    Actions actionsError = Actions.ERROR;
+    Actions actionsJugar = Actions.JUGAR;
+    Actions actionsMorir = Actions.MORIR;
 
-    default void getCurrentActions() {
-        List<Actions> ACTIONS_LINKED_LIST = new LinkedList<>();
-    }
-
+    List<Actions> getCurrentActions();
 }
