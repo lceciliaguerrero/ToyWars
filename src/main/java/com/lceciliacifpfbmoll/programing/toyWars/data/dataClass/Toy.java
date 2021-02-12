@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 
-public class Toy extends LifeBeing implements DoActions, IRender {
+public class Toy extends LifeBeing implements DoActions {
+    //Todo creo que solo se puede implementar una interfaz
+    // public class Toy extends LifeBeing implements DoActions, IRender {...}
     //Atributos privados estaticos final:
     private static Actions actions;
     private static final AtomicLong count = new AtomicLong(0);
@@ -46,7 +48,7 @@ public class Toy extends LifeBeing implements DoActions, IRender {
         this.setName(name.toLowerCase().trim());
         this.setPoints(100);
 
-        boolean salir = false;
+        /*boolean salir = false;
         while (!salir) {
             System.out.println("");
             System.out.println("==============================================================");
@@ -74,8 +76,6 @@ public class Toy extends LifeBeing implements DoActions, IRender {
                         break;
                     case ENFERMAR:
                         break;
-                    case ERRORUSUARIO:
-                        break;
                     case JUGAR:
                         break;
                     case MORIR:
@@ -87,8 +87,7 @@ public class Toy extends LifeBeing implements DoActions, IRender {
             } catch (Exception firstException) {
                 System.out.println(firstException.getMessage());
             }
-        }
-
+        }*/
     }
 
     //Methods printData

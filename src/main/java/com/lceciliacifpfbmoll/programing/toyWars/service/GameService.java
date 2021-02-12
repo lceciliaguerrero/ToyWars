@@ -28,7 +28,8 @@ public class GameService {
                 StringUtils.isEmpty(user.getPassword())) {
             return false;
         } else {
-            ToyWars..add()
+            ToyWars.USERS_LINKED_LIST.add(user);
+            return true;
         }
     }
 
