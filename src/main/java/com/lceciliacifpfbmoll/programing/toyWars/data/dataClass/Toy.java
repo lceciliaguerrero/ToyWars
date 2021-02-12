@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 
-public class Toy extends LifeBeing implements DoActions {
-    //Todo creo que solo se puede implementar una interfaz
-    // public class Toy extends LifeBeing implements DoActions, IRender {...}
+public class Toy extends LifeBeing implements DoActions, IRender {
     //Atributos privados estaticos final:
     private static Actions actions;
     private static final AtomicLong count = new AtomicLong(0);
@@ -146,6 +144,11 @@ public class Toy extends LifeBeing implements DoActions {
     @Override
     public void morir(String actionsMuero) {
 
+    }
+
+    @Override
+    public List doRender() {
+        return null;
     }
 
 
