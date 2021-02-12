@@ -9,7 +9,7 @@ class TestUserAction {
     @Test
     void createUserActionTest() {
 
-        UserAction userAction = new UserAction("Tamagotchi", "20");
+        UserAction userAction = new UserAction("Toy", "20");
         userAction.printUserActionConsole();
         Assert.isNull(userAction.getPointsStart(), "Error");
     }

@@ -1,9 +1,8 @@
 package com.lceciliacifpfbmoll.programing.toyWars.service;
 
+import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
 import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Actions;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Estatus;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.UserAction;
+import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,30 @@ import java.util.List;
 
 @Service
 public class GameService {
+
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //Methods insertData
+    public boolean addToy(Toy toy) {
+        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName())) {
+            return false;
+        } else {
+            ToyWars.TOYS_LINKED_LIST.add(toy);
+            return true;
+        }
+    }
+
+    public boolean addUsser(User user) {
+        if (user == null || StringUtils.isEmpty(user.getEmailUser()) ||
+                StringUtils.isEmpty(user.getPassword())) {
+            return false;
+        } else {
+            ToyWars..add()
+        }
+    }
+
+
+
     //Atributos privados no estaticos:
     private List<UserAction> userActions;
     private Integer maxPoints;
@@ -45,8 +68,6 @@ public class GameService {
     public void setCurrentLifeBeing(Estatus currentLifeBeing) {
         this.currentLifeBeing = currentLifeBeing;
     }
-
-
 
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
@@ -86,7 +107,7 @@ public class GameService {
         } else if (StringUtils.equals(optionActions, "morir")) {
             return Actions.MORIR;
         } else {
-            return Actions.ERROR;
+            return Actions.ERRORUSUARIO;
         }
     }
 

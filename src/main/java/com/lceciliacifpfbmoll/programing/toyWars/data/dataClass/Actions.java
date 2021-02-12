@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public enum Actions {
     //Constantes del actions de lifeBoing
-    ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERROR, JUGAR, MORIR;
+    ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR;
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //toString();
