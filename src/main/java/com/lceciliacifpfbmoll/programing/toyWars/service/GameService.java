@@ -116,4 +116,6 @@ public class GameService {
     public GameService(List userActions, String maxPoints, Estatus currentLifeBeing) {
 
     }
+
+
 }
