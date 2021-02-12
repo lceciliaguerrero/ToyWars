@@ -35,6 +35,7 @@ public class User {
         this.setPassword(password.trim());
     }
 
+    //Methods printData
     public void printUserConsole() {
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");

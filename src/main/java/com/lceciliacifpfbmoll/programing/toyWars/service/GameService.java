@@ -10,31 +10,6 @@ import java.util.List;
 
 @Service
 public class GameService {
-
-    //-------------------------------------------------->> Methods <<--------------------------------------------------
-    //Methods insertData
-    public boolean addToy(Toy toy) {
-        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
-                StringUtils.isEmpty(toy.getName())) {
-            return false;
-        } else {
-            ToyWars.TOYS_LINKED_LIST.add(toy);
-            return true;
-        }
-    }
-
-    public boolean addUsser(User user) {
-        if (user == null || StringUtils.isEmpty(user.getEmailUser()) ||
-                StringUtils.isEmpty(user.getPassword())) {
-            return false;
-        } else {
-            ToyWars.USERS_LINKED_LIST.add(user);
-            return true;
-        }
-    }
-
-
-
     //Atributos privados no estaticos:
     private List<UserAction> userActions;
     private Integer maxPoints;
@@ -112,9 +87,40 @@ public class GameService {
         }
     }
 
-    //Methods insertData
-    public GameService(List userActions, String maxPoints, Estatus currentLifeBeing) {
 
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //Methods insertData
+    //addToy(Toy toy);
+    public boolean addToy(Toy toy) {
+        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName())) {
+            return false;
+        } else {
+            ToyWars.TOYS_LINKED_LIST.add(toy);
+            return true;
+        }
+    }
+
+    //addUsser(User user);
+    public boolean addUsser(User user) {
+        if (user == null || StringUtils.isEmpty(user.getEmailUser()) ||
+                StringUtils.isEmpty(user.getPassword())) {
+            return false;
+        } else {
+            ToyWars.USERS_LINKED_LIST.add(user);
+            return true;
+        }
+    }
+
+    //addUserAction(UserAction userAction);
+    public boolean addUserAction(UserAction userAction) {
+        if (userAction == null || StringUtils.isEmpty(userAction.getTypeToy()) ||
+                StringUtils.isEmpty(userAction.getPointsObtained().toString())) {
+            return false;
+        } else {
+            ToyWars.USER_ACTIONS_LINKED_LIST.add(userAction);
+            return true;
+        }
     }
 
 
