@@ -72,7 +72,6 @@ public class User extends Person {
         System.out.println("Impresión del User.");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
-        System.out.println("Su usuario es: " + this.get + ".");
         System.out.println("Su contrseña es: " + this.getPassword() + ".");
         System.out.println("");
         System.out.println("");

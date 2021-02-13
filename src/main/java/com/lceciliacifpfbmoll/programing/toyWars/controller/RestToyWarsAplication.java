@@ -87,13 +87,10 @@ public class RestToyWarsAplication {
         return gameService.getUsers();
     }
 
-    @PostMapping("/newUser")
+    /*@PostMapping("/newUser")
     public List<User> addFullUser() {
-        gameService.addUsser(new User(firstNamePersonaRest, lastNamePersonaRest,
-                agePersonaRest, mobilePhoneNumberPersonaRest, emailPersonaRest,
-                generoPersonaRest, passwordUserRest));
-        return gameService.getUsers();
-    }
+
+    }*/
 
 
     /*@PostMapping("/newCliente")
