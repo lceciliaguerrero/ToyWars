@@ -3,13 +3,13 @@ package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 import java.util.List;
 
 public interface DoActions {
-    List<Actions> getCurrentActions();
+    List<Action> getCurrentActions();
 
-    void alimentar(String actionsAlimento);
-    void caminar(String actionsCamino);
-    void dormir(String actionsDuermo);
-    void enfermer(String actionsEnfermo);
-    void errorUsuario(String actionsError);
-    void jugar(String actionsJuego);
-    void morir(String actionsMuero);
+    void alimentar(String sAlimentar);
+    void caminar(Integer iCaminar);
+    void dormir(Integer iDormir);
+    void enfermar(String sEnfermar);
+    void errorUsuario();
+    void jugar(String sJugar);
+    void morir();
 }

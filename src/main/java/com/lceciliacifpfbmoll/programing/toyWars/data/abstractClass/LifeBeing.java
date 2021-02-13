@@ -8,21 +8,19 @@ public abstract class LifeBeing implements DoActions {
     private Long identification;
     private String name;
     private Gender gender;
-    private Integer points;
+    /*private Integer points;*/
 
     //Constructores (alt+insertar)
-    public LifeBeing(Long identification, String name, Gender gender, Integer points) {
+    public LifeBeing(Long identification, String name, Gender gender) {
         this.identification = identification;
         this.name = name;
         this.gender = gender;
-        this.points = points;
     }
 
     public LifeBeing(LifeBeing copyLifeBeing) {
         this.identification = copyLifeBeing.identification;
+        this.identification = copyLifeBeing.identification;
         this.name = copyLifeBeing.name;
-        this.gender = copyLifeBeing.gender;
-        this.points = copyLifeBeing.points;
     }
 
     public LifeBeing() {
@@ -54,17 +52,6 @@ public abstract class LifeBeing implements DoActions {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-
-    public Integer getPoints() {
-        return points;
-    }
-
-    public void setPoints(Integer points) {
-        this.points = points;
-    }
-
-
-
     //-------------------------------------------------->> Methods <<--------------------------------------------------
 
 }

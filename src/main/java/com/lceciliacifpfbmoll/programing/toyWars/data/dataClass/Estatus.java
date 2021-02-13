@@ -1,48 +1,86 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
-import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
+public class Estatus {
+    //Atributos privados no estaticos:
+    private Integer points;
+    private Action currentAction;
+    private Integer actualPoints;
 
-public class Estatus extends LifeBeing {
+    //principio puntos y puntos actuales.
 
-    @Override
-    public List<Actions> getCurrentActions() {
-        return null;
+
+    //Constructores (alt+insertar)
+    /*public Estatus(Integer points, Action currentAction, Integer actualPoints) {
+        this.points = points;
+        this.currentAction = currentAction;
+        this.actualPoints = actualPoints;
+    }*/
+
+    public Estatus() {
     }
 
-    @Override
-    public void alimentar(String actionsAlimento) {
-
+    //Geters y Seters (alt+insertar)
+    public Integer getPoints() {
+        return points;
     }
 
-    @Override
-    public void caminar(String actionsCamino) {
-
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 
-    @Override
-    public void dormir(String actionsDuermo) {
-
+    public Action getCurrentAction() {
+        return currentAction;
     }
 
-    @Override
-    public void enfermer(String actionsEnfermo) {
-
+    public void setCurrentAction(Action currentAction) {
+        this.currentAction = currentAction;
     }
 
-    @Override
-    public void errorUsuario(String actionsError) {
-
+    public Integer getActualPoints() {
+        return actualPoints;
     }
 
-    @Override
-    public void jugar(String actionsJuego) {
-
+    public void setActualPoints(Integer actualPoints) {
+        this.actualPoints = actualPoints;
     }
 
-    @Override
-    public void morir(String actionsMuero) {
-
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //Methods insertData
+    public Estatus(String points, String currentAction, String actualPoints) {
+        this.setPoints(Integer.parseInt(points.toLowerCase().trim()));
+        String optionAction = currentAction.toLowerCase().trim();
+        try {
+            if (StringUtils.equals(optionAction, "alimentar") ||
+                    StringUtils.equals(optionAction, "comer") ||
+                    StringUtils.equals(optionAction, "beber")) {
+                this.setCurrentAction(Action.ALIMENTAR);
+            } else if (StringUtils.equals(optionAction, "caminar") ||
+                    StringUtils.equals(optionAction, "andar") ||
+                    StringUtils.equals(optionAction, "pasear")) {
+                this.setCurrentAction(Action.CAMINAR);
+            } else if (StringUtils.equals(optionAction, "dormir") ||
+                    StringUtils.equals(optionAction, "descansar") ||
+                    StringUtils.equals(optionAction, "siesta")) {
+                this.setCurrentAction(Action.DORMIR);
+            } else if (StringUtils.equals(optionAction, "enfermar") |
+                    StringUtils.equals(optionAction, "malestar") ||
+                    StringUtils.equals(optionAction, "dolor")) {
+                this.setCurrentAction(Action.ENFERMAR);
+            } else if (StringUtils.equals(optionAction, "errorusuario")) {
+                this.setCurrentAction(Action.ERRORUSUARIO);
+            } else if (StringUtils.equals(optionAction, "jugar") |
+                    StringUtils.equals(optionAction, "divertirse") ||
+                    StringUtils.equals(optionAction, "entrenar")) {
+                this.setCurrentAction(Action.JUGAR);
+            } else if (StringUtils.equals(optionAction, "morir") |
+                    StringUtils.equals(optionAction, "suicidarse")) {
+                this.setCurrentAction(Action.MORIR);
+            }
+        } catch (Exception firstExceptionInsertDataEstatus) {
+            System.out.println(firstExceptionInsertDataEstatus.getMessage());
+        }
+        this.setActualPoints(Integer.parseInt(actualPoints));
     }
 }
