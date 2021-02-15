@@ -47,9 +47,12 @@ public class Toy extends LifeBeing implements DoActions, IRender {
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //Methods insertData
-    public Toy(String gender, String name) {
+    public Toy(String name, String gender, String toysType) {
         ///count
         this.setIdentification(count.incrementAndGet());
+
+        //String name
+        this.setName(name.toLowerCase().trim());
 
         //String gender
         String optionGenderInsertDataToy = gender.toLowerCase().trim();
@@ -69,13 +72,29 @@ public class Toy extends LifeBeing implements DoActions, IRender {
             System.out.println(firstExceptionInsertDataTamagotchi.getMessage());
         }
 
-        //String name
-        this.setName(name.toLowerCase().trim());
+        //String toysType
+        String optionToysType = toysType.toLowerCase().trim();
+        try {
+            if (StringUtils.equals(optionToysType, "tamagotchi")) {
+                this.setToysType(ToysType.TAMAGOTCHI);
+            } else if (StringUtils.equals(optionToysType, "pokemon")) {
+                this.setToysType(ToysType.POKEMON);
+            } else if (StringUtils.equals(optionToysType, "gi joe") ||
+                    StringUtils.equals(optionToysType, "g.i. joe") ||
+                    StringUtils.equals(optionToysType, "gijoe")) {
+                this.setToysType(ToysType.GIJOE);
+            } else {
+                this.setToysType(ToysType.TOYS_TYPE_ERROR);
+            }
+        } catch (Exception secondExceptionInsertDataToy) {
+            System.out.println(secondExceptionInsertDataToy.getMessage());
+        }
 
         //ToyWars.beginningPoints
+        //this.setEstatus(estatus.setActualPoints(ToyWars.beginningPoints));
         this.estatus.setActualPoints(ToyWars.beginningPoints);
 
-        //f
+        //this.setEstatus(estatus.setCurrentAction(getAction()));
         this.estatus.setCurrentAction(getAction());
     }
 
@@ -87,14 +106,21 @@ public class Toy extends LifeBeing implements DoActions, IRender {
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
         System.out.println("Su nomre es: " + this.getName() + ".");
-        /*System.out.println("Su género es: " + this.getGender() + ".");
-        System.out.println("Sus puntos son: " + this.getPoints() + ".");*/
+        System.out.println("Su género es: " + this.getGender().toString() + ".");
+        System.out.println("Sus puntos son: " + this.getEstatus().getPoints() + ".");
+        System.out.println("Su acion es: " + this.getAction().toString() + ".");
+        System.out.println("Sus puntos actuales son: " + this.getEstatus().getActualPoints() + ".");
+        System.out.println("Su acción es: " + this.getEstatus().getCurrentAction() + ".");
+
         System.out.println("");
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
         System.out.println("");
     }
+
+
+
 
     @Override
     public List<Action> getCurrentActions() {

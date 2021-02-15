@@ -1,6 +1,5 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
-import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
 import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.Person;
 import org.apache.commons.lang3.StringUtils;
 
@@ -18,26 +17,31 @@ public class User extends Person {
     }
 
     //Geters y Seters (alt+insertar)
-    public String getEmailUser() {
-        return emailUser;
+    public static AtomicLong getCount() {
+        return count;
     }
 
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
+    public String getKeyUser() {
+        return keyUser;
     }
 
-    public String getPassword() {
-        return password;
+    public void setKeyUser(String keyUser) {
+        this.keyUser = keyUser;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public Toy getToy() {
+        return toy;
     }
 
+    public void setToy(Toy toy) {
+        this.toy = toy;
+    }
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //Methods insertData
-    public User(String firstNamePersona, String lastNamePersona, String agePersona, String mobilePhoneNumberPersona, String emailPersona, String generoPersona, String password) {
+    public User(String firstNamePersona, String lastNamePersona, String agePersona,
+                String mobilePhoneNumberPersona, String emailPersona,
+                String generoPersona, String keyUser, String nameToy, String genderToy, String toysType) {
         this.setIdentificationPersona(count.incrementAndGet());
         this.setFirstNamePersona(firstNamePersona.toLowerCase().trim());
         this.setLastNamePersona(lastNamePersona.toLowerCase().trim());
@@ -60,19 +64,25 @@ public class User extends Person {
         } catch (Exception firstExceptionInsertDataUser) {
             System.out.println(firstExceptionInsertDataUser.getMessage());
         }
-        this.setPassword(password.trim());
-
-        this.toy = new Toy();
+        this.setKeyUser(keyUser.trim());
+        this.setToy(new Toy(nameToy, genderToy, toysType));
     }
 
     //Methods printData
     public void printUserConsole() {
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("Impresión del User.");
+        System.out.println("Impresión del User " + this.getIdentificationPersona() + ".");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
-        System.out.println("Su contrseña es: " + this.getPassword() + ".");
+        System.out.println("Su nombre es: " + this.getFirstNamePersona() + ", " +
+                this.getLastNamePersona() + ".");
+        System.out.println("Su edad es: " + this.getAgePersona() + " años.");
+        System.out.println("Su número de teléfono móvil es: " +
+                this.getMobilePhoneNumberPersona() + ".");
+        System.out.println("El correo electrónico es: " + this.getEmailPersona() + ".");
+        System.out.println("El género es: " + this.getGeneroPersona() + ".");
+        System.out.println("Su contrseña es: " + this.getKeyUser() + ".");
         System.out.println("");
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");

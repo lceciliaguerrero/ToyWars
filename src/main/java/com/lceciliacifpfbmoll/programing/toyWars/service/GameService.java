@@ -20,6 +20,82 @@ public class GameService {
 
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //Methods insertData
+    //setUsser(User user);
+    public boolean setUsser(User user) {
+        if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
+                StringUtils.isEmpty(user.getLastNamePersona()) ||
+                //StringUtils.isEmpty(cliente.getAgePersona().toString()) ||
+                StringUtils.isEmpty(user.getMobilePhoneNumberPersona()) ||
+                StringUtils.isEmpty(user.getEmailPersona()) ||
+                //StringUtils.isEmpty(cliente.getGeneroPersona().toString()) ||
+                StringUtils.isEmpty(user.getKeyUser())) {
+            return false;
+        } else {
+            ToyWars.USERS_LINKED_LIST.add(user);
+            return true;
+        }
+    }
+
+    //setToy(Toy toy);
+    public boolean setToy(Toy toy) {
+        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName()) ||
+                StringUtils.isEmpty(toy.getToysType().toString())) {
+            return false;
+        } else {
+            ToyWars.TOYS_LINKED_LIST.add(toy);
+            return true;
+        }
+    }
+
+
+    //setUserAction(UserAction userAction);
+    public boolean setUserAction(UserAction userAction) {
+        if (userAction == null || StringUtils.isEmpty(userAction.getTypeToy()) ||
+                StringUtils.isEmpty(userAction.getPointsObtained().toString())) {
+            return false;
+        } else {
+            ToyWars.USER_ACTIONS_LINKED_LIST.add(userAction);
+            return true;
+        }
+    }
+
+    //setEstatus(Estatus estatus)
+    public boolean setEstatus(Estatus estatus) {
+        if (estatus == null || StringUtils.isEmpty(estatus.getPoints().toString()) ||
+                StringUtils.isEmpty(estatus.getCurrentAction().toString()) ||
+                StringUtils.isEmpty(estatus.getActualPoints().toString())) {
+            return false;
+        } else {
+            ToyWars.ESTATUS_LINKED_LIST.add(estatus);
+            return true;
+        }
+    }
+
+
+    //Methods pintData
+    //getUsers()
+    public List<User> getUsers() {
+        return ToyWars.USERS_LINKED_LIST;
+    }
+
+    //getToys();
+    public List<Toy> getToys() {
+        return ToyWars.TOYS_LINKED_LIST;
+    }
+
+    //getUserActions();
+    public List<UserAction> getUserActions() {
+        return ToyWars.USER_ACTIONS_LINKED_LIST;
+    }
+
+    //getEstatuses();
+    public List<Estatus> getEstatuses() {
+        return ToyWars.ESTATUS_LINKED_LIST;
+    }
+
+
 
     //resetLifeBeing();
     public LifeBeing resetLifeBeing() {
@@ -268,77 +344,6 @@ public class GameService {
 
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
-    //Methods insertData
-    //addUsser(User user);
-    public boolean addUsser(User user) {
-        if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
-                StringUtils.isEmpty(user.getLastNamePersona()) ||
-                //StringUtils.isEmpty(cliente.getAgePersona().toString()) ||
-                StringUtils.isEmpty(user.getMobilePhoneNumberPersona()) || StringUtils.isEmpty(user.getEmailPersona()) ||
-                //StringUtils.isEmpty(cliente.getGeneroPersona().toString()) ||
-                StringUtils.isEmpty(user.getPassword())) {
-            return false;
-        } else {
-            ToyWars.USERS_LINKED_LIST.add(user);
-            return true;
-        }
-    }
 
-    //addToy(Toy toy);
-    public boolean addToy(Toy toy) {
-        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
-                StringUtils.isEmpty(toy.getName())) {
-            return false;
-        } else {
-            ToyWars.TOYS_LINKED_LIST.add(toy);
-            return true;
-        }
-    }
-
-
-    //addUserAction(UserAction userAction);
-    public boolean addUserAction(UserAction userAction) {
-        if (userAction == null || StringUtils.isEmpty(userAction.getTypeToy()) ||
-                StringUtils.isEmpty(userAction.getPointsObtained().toString())) {
-            return false;
-        } else {
-            ToyWars.USER_ACTIONS_LINKED_LIST.add(userAction);
-            return true;
-        }
-    }
-
-    //addEstatus(Estatus estatus)
-    public boolean addEstatus(Estatus estatus) {
-        if (estatus == null || StringUtils.isEmpty(estatus.getPoints().toString()) ||
-                StringUtils.isEmpty(estatus.getCurrentAction().toString()) ||
-                StringUtils.isEmpty(estatus.getActualPoints().toString())) {
-            return false;
-        } else {
-            ToyWars.ESTATUS_LINKED_LIST.add(estatus);
-            return true;
-        }
-    }
-
-
-    //Methods pintData
-    //getUsers()
-    public List<User> getUsers() {
-        return ToyWars.USERS_LINKED_LIST;
-    }
-
-    //getToys();
-    public List<Toy> getToys() {
-        return ToyWars.TOYS_LINKED_LIST;
-    }
-
-    //getUserActions();
-    public List<UserAction> getUserActions() {
-        return ToyWars.USER_ACTIONS_LINKED_LIST;
-    }
-
-    //getEstatuses();
-    public List<Estatus> getEstatuses() {
-        return ToyWars.ESTATUS_LINKED_LIST;
-    }
 
 }
