@@ -8,11 +8,19 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 
-public class Toy extends LifeBeing implements DoActions, IRender {
+public class Toy extends LifeBeing {
     //Atributos privados estaticos final:
     private static final AtomicLong count = new AtomicLong(0);
 
     //Constructores: (alt+insertar)
+    /*public Toy(Estatus estatus, Long identification, String name, Gender gender, Action action, Estatus estatus1, ToysType toysType, Integer actualPoints) {
+        super(estatus, identification, name, gender);
+        this.action = action;
+        this.estatus = estatus1;
+        this.toysType = toysType;
+        this.actualPoints = actualPoints;
+    }*/
+
     public Toy() {
     }
 
@@ -92,10 +100,47 @@ public class Toy extends LifeBeing implements DoActions, IRender {
 
         //ToyWars.beginningPoints
         //this.setEstatus(estatus.setActualPoints(ToyWars.beginningPoints));
-        this.estatus.setActualPoints(ToyWars.beginningPoints);
+        this.setActualPoints(ToyWars.beginningPoints);
+
 
         //this.setEstatus(estatus.setCurrentAction(getAction()));
         this.estatus.setCurrentAction(getAction());
+    }
+
+    public Toy(String actions) {
+        //String actions
+        String optionAction = actions.toLowerCase().trim();
+        try {
+            if (StringUtils.equals(optionAction, "alimentar") ||
+                    StringUtils.equals(optionAction, "comer") ||
+                    StringUtils.equals(optionAction, "beber")) {
+                this.setAction(Action.ALIMENTAR);
+            } else if (StringUtils.equals(optionAction, "caminar") ||
+                    StringUtils.equals(optionAction, "andar") ||
+                    StringUtils.equals(optionAction, "pasear")) {
+                this.setAction(Action.CAMINAR);
+            } else if (StringUtils.equals(optionAction, "dormir") ||
+                    StringUtils.equals(optionAction, "descansar") ||
+                    StringUtils.equals(optionAction, "siesta")) {
+                this.setAction(Action.DORMIR);
+            } else if (StringUtils.equals(optionAction, "enfermar") |
+                    StringUtils.equals(optionAction, "malestar") ||
+                    StringUtils.equals(optionAction, "dolor")) {
+                this.setAction(Action.ENFERMAR);
+            } else if (StringUtils.equals(optionAction, "jugar") |
+                    StringUtils.equals(optionAction, "divertirse") ||
+                    StringUtils.equals(optionAction, "entrenar")) {
+                this.setAction(Action.JUGAR);
+            } else if (StringUtils.equals(optionAction, "morir") |
+                    StringUtils.equals(optionAction, "suicidarse")) {
+                this.setAction(Action.MORIR);
+            } else {
+                this.setAction(Action.ERRORUSUARIO);
+            }
+        } catch (Exception firstExceptionInsertDataEstatus) {
+            System.out.println(firstExceptionInsertDataEstatus.getMessage());
+        }
+
     }
 
     //Methods printData
@@ -107,11 +152,9 @@ public class Toy extends LifeBeing implements DoActions, IRender {
         System.out.println("");
         System.out.println("Su nomre es: " + this.getName() + ".");
         System.out.println("Su género es: " + this.getGender().toString() + ".");
-        System.out.println("Sus puntos son: " + this.getEstatus().getPoints() + ".");
         System.out.println("Su acion es: " + this.getAction().toString() + ".");
-        System.out.println("Sus puntos actuales son: " + this.getEstatus().getActualPoints() + ".");
+        System.out.println("Sus puntos actuales son: " + this.getActualPoints() + ".");
         System.out.println("Su acción es: " + this.getEstatus().getCurrentAction() + ".");
-
         System.out.println("");
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
@@ -124,7 +167,7 @@ public class Toy extends LifeBeing implements DoActions, IRender {
 
     @Override
     public List<Action> getCurrentActions() {
-        return ToyWars.ACTION_LINKED_LIST;
+        return ToyWars.ACTIONS_ARRAY_LIST;
     }
 
     //DoActions
@@ -138,24 +181,24 @@ public class Toy extends LifeBeing implements DoActions, IRender {
         if (iCaminar == 0) {
             this.estatus.setActualPoints(getEstatus().getActualPoints()); //no aumenta la vida
         } else if (iCaminar > 0 & iCaminar <= 1) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 10); //aumenta la vida + 10
+            this.setActualPoints(ToyWars.beginningPoints + 10); //aumenta la vida + 10
         } else if (iCaminar > 1 & iCaminar <= 2) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 20); //aumenta la vida + 20
+            this.setActualPoints(ToyWars.beginningPoints + 20); //aumenta la vida + 20
         } else if (iCaminar > 2 & iCaminar <= 3) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 35); //aumenta la vida + 35
+            this.setActualPoints(ToyWars.beginningPoints + 35); //aumenta la vida + 35
         } else if (iCaminar > 3 & iCaminar <= 4) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 50); //aumenta la vida + 35
+            this.setActualPoints(ToyWars.beginningPoints + 50); //aumenta la vida + 35
         }
     }
 
     @Override
     public void dormir(Integer iDormir) {
         if (iDormir >= 6 & iDormir <= 8) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 25); //aumenta la vida + 25
+            this.setActualPoints(ToyWars.beginningPoints + 25); //aumenta la vida + 25
         } else if (iDormir > 8 & iDormir <= 10) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 15); //aumenta la vida + 15
+            this.setActualPoints(ToyWars.beginningPoints + 15); //aumenta la vida + 15
         } else if (iDormir > 10 & iDormir <= 12) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() - 35); //disminuye la vida - 15
+            this.setActualPoints(ToyWars.beginningPoints - 35); //disminuye la vida - 15
         }
     }
 

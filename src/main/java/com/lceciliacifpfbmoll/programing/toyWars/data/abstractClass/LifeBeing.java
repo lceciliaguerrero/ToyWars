@@ -1,26 +1,31 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass;
 
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.DoActions;
+import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Estatus;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Gender;
+import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.IRender;
 
-public abstract class LifeBeing implements DoActions {
+public abstract class LifeBeing implements DoActions, IRender {
     //Atributos privados no estaticos:
     private Long identification;
     private String name;
     private Gender gender;
-    /*private Integer points;*/
+    private Estatus estatus; // Se actualiza segun la acción que el usuario introduce.
+                             // OJO QUE SI EL POKEMON SE ESTÁ ALIMENDO NO PUEDE VOLVER A ALIMENTARSE.
 
     //Constructores (alt+insertar)
-    public LifeBeing(Long identification, String name, Gender gender) {
+    public LifeBeing(Estatus estatus, Long identification, String name, Gender gender) {
+        this.estatus = estatus;
         this.identification = identification;
         this.name = name;
         this.gender = gender;
     }
 
     public LifeBeing(LifeBeing copyLifeBeing) {
-        this.identification = copyLifeBeing.identification;
+        this.estatus = copyLifeBeing.estatus;
         this.identification = copyLifeBeing.identification;
         this.name = copyLifeBeing.name;
+        this.gender = copyLifeBeing.gender;
     }
 
     public LifeBeing() {
@@ -29,6 +34,14 @@ public abstract class LifeBeing implements DoActions {
 
 
     //Geters y Seters (alt+insertar)
+    public Estatus getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(Estatus estatus) {
+        this.estatus = estatus;
+    }
+
     public Long getIdentification() {
         return identification;
     }
@@ -52,6 +65,8 @@ public abstract class LifeBeing implements DoActions {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
+
     //-------------------------------------------------->> Methods <<--------------------------------------------------
 
 }

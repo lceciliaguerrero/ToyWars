@@ -4,9 +4,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TestUserAction {
+class ToyTest {
+
     @Test
-    void createUserActionTest() {
-        UserAction userAction = new UserAction();
+    void createToyTest() {
+        Toy toy = new Toy("", "", "");
+    }
+
+    @Test
+    void createActionTest() {
+        Toy actionToy = new Toy("");
     }
 }

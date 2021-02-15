@@ -10,19 +10,59 @@ import java.util.List;
 
 @Service
 public class GameService {
-    //Atributos privados no estaticos:
-    private List<UserAction> userActions;
+    //Atributos privados estaticos:
+    private List<UserAction> userAction;
     private Integer maxPoints;
     private LifeBeing currentLifeBeing;
     private Action actions;
     private Toy toy;
     private Estatus estatus;
 
+    //Geters y Seters (alt+insertar)
+    public List<UserAction> getUserAction() {
+        return userAction;
+    }
+
+    public void setUserAction(List<UserAction> userAction) {
+        this.userAction = userAction;
+    }
+
+    public Integer getMaxPoints() {
+        return maxPoints;
+    }
+
+    public void setMaxPoints(Integer maxPoints) {
+        this.maxPoints = maxPoints;
+    }
+
+    public LifeBeing getCurrentLifeBeing() {
+        return currentLifeBeing;
+    }
+
+    public void setCurrentLifeBeing(LifeBeing currentLifeBeing) {
+        this.currentLifeBeing = currentLifeBeing;
+    }
+
+    public void setActions(Action actions) {
+        this.actions = actions;
+    }
+
+    public Toy getToy() {
+        return toy;
+    }
+
+    public Estatus getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(Estatus estatus) {
+        this.estatus = estatus;
+    }
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //Methods insertData
-    //setUsser(User user);
-    public boolean setUsser(User user) {
+    //setUser(User user);
+    public boolean setUser(User user) {
         if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
                 StringUtils.isEmpty(user.getLastNamePersona()) ||
                 //StringUtils.isEmpty(cliente.getAgePersona().toString()) ||
@@ -41,34 +81,11 @@ public class GameService {
     public boolean setToy(Toy toy) {
         if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
                 StringUtils.isEmpty(toy.getName()) ||
-                StringUtils.isEmpty(toy.getToysType().toString())) {
+                StringUtils.isEmpty(toy.getToysType().toString()) ||
+        StringUtils.isEmpty(toy.getAction().toString())) {
             return false;
         } else {
             ToyWars.TOYS_LINKED_LIST.add(toy);
-            return true;
-        }
-    }
-
-
-    //setUserAction(UserAction userAction);
-    public boolean setUserAction(UserAction userAction) {
-        if (userAction == null || StringUtils.isEmpty(userAction.getTypeToy()) ||
-                StringUtils.isEmpty(userAction.getPointsObtained().toString())) {
-            return false;
-        } else {
-            ToyWars.USER_ACTIONS_LINKED_LIST.add(userAction);
-            return true;
-        }
-    }
-
-    //setEstatus(Estatus estatus)
-    public boolean setEstatus(Estatus estatus) {
-        if (estatus == null || StringUtils.isEmpty(estatus.getPoints().toString()) ||
-                StringUtils.isEmpty(estatus.getCurrentAction().toString()) ||
-                StringUtils.isEmpty(estatus.getActualPoints().toString())) {
-            return false;
-        } else {
-            ToyWars.ESTATUS_LINKED_LIST.add(estatus);
             return true;
         }
     }
@@ -90,12 +107,18 @@ public class GameService {
         return ToyWars.USER_ACTIONS_LINKED_LIST;
     }
 
+    //getUserActionsVoid();
+    public void getUserActionsVoid() {
+        for (UserAction userAction : ToyWars.USER_ACTIONS_LINKED_LIST) {
+            userAction.printUserActionConsole();
+        }
+    }
+
+
     //getEstatuses();
     public List<Estatus> getEstatuses() {
         return ToyWars.ESTATUS_LINKED_LIST;
     }
-
-
 
     //resetLifeBeing();
     public LifeBeing resetLifeBeing() {
@@ -104,7 +127,7 @@ public class GameService {
 
     //render();
     public LifeBeing render() {
-        return null;
+        return currentLifeBeing;
     }
 
     //getStatus();
@@ -112,178 +135,149 @@ public class GameService {
         return null;
     }
 
-    //getActions(String option);
-    public Action getActions(String sGetActions) {
-        String optionAction = sGetActions.toLowerCase().trim();
-        if (estatus.getCurrentAction() == Action.ALIMENTAR) {
-            if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "andar") ||
-                    StringUtils.equals(optionAction, "pasear")) {
+    //getActions();
+    /*public Action getActions(String optionNewAction) {
+        String sOptionNewAction = optionNewAction.toLowerCase().trim();
+        Action optionAction = estatus.getCurrentAction();
+
+
+        if (optionAction == Action.ALIMENTAR) {
+            //Action.ALIMENTAR
+            if (sOptionNewAction.equals("caminar") ||
+                    StringUtils.equals(sOptionNewAction, "andar") ||
+                    StringUtils.equals(sOptionNewAction, "pasear")) {
                 return Action.CAMINAR;
-            } else if (StringUtils.equals(optionAction, "dormir") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "dormir") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
+            } else if (StringUtils.equals(sOptionNewAction, "enfermar") |
+                    StringUtils.equals(sOptionNewAction, "malestar") ||
+                    StringUtils.equals(sOptionNewAction, "dolor")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
+            } else if (StringUtils.equals(sOptionNewAction, "jugar") |
+                    StringUtils.equals(sOptionNewAction, "divertirse") ||
+                    StringUtils.equals(sOptionNewAction, "entrenar")) {
                 return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
+            } else if (StringUtils.equals(sOptionNewAction, "morir") |
+                    StringUtils.equals(sOptionNewAction, "suicidarse")) {
                 return Action.MORIR;
             }
 
-        } else if (estatus.getCurrentAction() == Action.CAMINAR) {
-           if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
+        } else if (optionAction == Action.CAMINAR) {
+            //Action.CAMINAR
+            if (StringUtils.equals(sOptionNewAction, "alimentar") ||
+                    StringUtils.equals(sOptionNewAction, "comer") ||
+                    StringUtils.equals(sOptionNewAction, "beber")) {
                 return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "dormir") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "dormir") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
+            } else if (StringUtils.equals(sOptionNewAction, "enfermar") |
+                    StringUtils.equals(sOptionNewAction, "malestar") ||
+                    StringUtils.equals(sOptionNewAction, "dolor")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
+            } else if (StringUtils.equals(sOptionNewAction, "jugar") |
+                    StringUtils.equals(sOptionNewAction, "divertirse") ||
+                    StringUtils.equals(sOptionNewAction, "entrenar")) {
                 return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
+            } else if (StringUtils.equals(sOptionNewAction, "morir") |
+                    StringUtils.equals(sOptionNewAction, "suicidarse")) {
                 return Action.MORIR;
             }
 
-        } else if (estatus.getCurrentAction() == Action.DORMIR) {
-            if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
+        } else if (optionAction == Action.DORMIR) {
+            //Action.DORMIR
+            if (StringUtils.equals(sOptionNewAction, "alimentar") ||
+                    StringUtils.equals(sOptionNewAction, "comer") ||
+                    StringUtils.equals(sOptionNewAction, "beber")) {
                 return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "caminar") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
+            } else if (StringUtils.equals(sOptionNewAction, "enfermar") |
+                    StringUtils.equals(sOptionNewAction, "malestar") ||
+                    StringUtils.equals(sOptionNewAction, "dolor")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
+            } else if (StringUtils.equals(sOptionNewAction, "jugar") |
+                    StringUtils.equals(sOptionNewAction, "divertirse") ||
+                    StringUtils.equals(sOptionNewAction, "entrenar")) {
                 return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
+            } else if (StringUtils.equals(sOptionNewAction, "morir") |
+                    StringUtils.equals(sOptionNewAction, "suicidarse")) {
                 return Action.MORIR;
             }
 
-        } else if (estatus.getCurrentAction() == Action.ENFERMAR) {
-            if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
+        } else if (optionAction == Action.ENFERMAR) {
+            //Action.ENFERMAR
+            if (StringUtils.equals(sOptionNewAction, "alimentar") ||
+                    StringUtils.equals(sOptionNewAction, "comer") ||
+                    StringUtils.equals(sOptionNewAction, "beber")) {
                 return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "caminar") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "dormir") |
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "dormir") |
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
+            } else if (StringUtils.equals(sOptionNewAction, "jugar") |
+                    StringUtils.equals(sOptionNewAction, "divertirse") ||
+                    StringUtils.equals(sOptionNewAction, "entrenar")) {
                 return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
+            } else if (StringUtils.equals(sOptionNewAction, "morir") |
+                    StringUtils.equals(sOptionNewAction, "suicidarse")) {
                 return Action.MORIR;
             }
 
-        } else if (estatus.getCurrentAction() == Action.ERRORUSUARIO) {
-            if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
+        } else if (optionAction == Action.JUGAR) {
+            //Action.JUGAR
+            if (StringUtils.equals(sOptionNewAction, "alimentar") ||
+                    StringUtils.equals(sOptionNewAction, "comer") ||
+                    StringUtils.equals(sOptionNewAction, "beber")) {
                 return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "caminar") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "dormir") |
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "dormir") |
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
+            } else if (StringUtils.equals(sOptionNewAction, "enfermar") |
+                    StringUtils.equals(sOptionNewAction, "malestar") ||
+                    StringUtils.equals(sOptionNewAction, "dolor")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
-                return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
+            } else if (StringUtils.equals(sOptionNewAction, "morir") |
+                    StringUtils.equals(sOptionNewAction, "suicidarse")) {
                 return Action.MORIR;
             }
 
-        } else if (estatus.getCurrentAction() == Action.JUGAR) {
-            if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
+        } else if (optionAction == Action.MORIR) {
+            //Action.MORIR
+            if (StringUtils.equals(sOptionNewAction, "alimentar") ||
+                    StringUtils.equals(sOptionNewAction, "comer") ||
+                    StringUtils.equals(sOptionNewAction, "beber")) {
                 return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "caminar") ||
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "dormir") |
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
+            } else if (StringUtils.equals(sOptionNewAction, "dormir") |
+                    StringUtils.equals(sOptionNewAction, "descansar") ||
+                    StringUtils.equals(sOptionNewAction, "siesta")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
+            } else if (StringUtils.equals(sOptionNewAction, "enfermar") |
+                    StringUtils.equals(sOptionNewAction, "malestar") ||
+                    StringUtils.equals(sOptionNewAction, "dolor")) {
                 return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
-            } else if (StringUtils.equals(optionAction, "morir") |
-                    StringUtils.equals(optionAction, "suicidarse")) {
-                return Action.MORIR;
-            }
-
-        } else if (estatus.getCurrentAction() == Action.MORIR) {
-            if (StringUtils.equals(optionAction, "alimentar") ||
-                    StringUtils.equals(optionAction, "comer") ||
-                    StringUtils.equals(optionAction, "beber")) {
-                return Action.ALIMENTAR;
-            } else if (StringUtils.equals(optionAction, "caminar") ||
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
-                return Action.DORMIR;
-            } else if (StringUtils.equals(optionAction, "dormir") |
-                    StringUtils.equals(optionAction, "descansar") ||
-                    StringUtils.equals(optionAction, "siesta")) {
-                return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "enfermar") |
-                    StringUtils.equals(optionAction, "malestar") ||
-                    StringUtils.equals(optionAction, "dolor")) {
-                return Action.ENFERMAR;
-            } else if (StringUtils.equals(optionAction, "jugar") |
-                    StringUtils.equals(optionAction, "divertirse") ||
-                    StringUtils.equals(optionAction, "entrenar")) {
+            } else if (StringUtils.equals(sOptionNewAction, "jugar") |
+                    StringUtils.equals(sOptionNewAction, "divertirse") ||
+                    StringUtils.equals(sOptionNewAction, "entrenar")) {
                 return Action.JUGAR;
-            } else if (StringUtils.equals(optionAction, "errorusuario")) {
-                return Action.ERRORUSUARIO;
             }
         }
         return null;
@@ -296,7 +290,6 @@ public class GameService {
 
             }
         }*/
-
         switch (action) {
             case ALIMENTAR:
                 System.out.println("¿que quieres comer?: ");
@@ -326,6 +319,8 @@ public class GameService {
             case MORIR:
                 currentLifeBeing.morir();
                 break;
+            case RESETEAR:
+                currentLifeBeing.resetear();
             default:
                 break;
 

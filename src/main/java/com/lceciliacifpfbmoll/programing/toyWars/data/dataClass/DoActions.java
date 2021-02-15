@@ -4,7 +4,6 @@ import java.util.List;
 
 public interface DoActions {
     List<Action> getCurrentActions();
-
     void alimentar(String sAlimentar);
     void caminar(Integer iCaminar);
     void dormir(Integer iDormir);
@@ -12,4 +11,5 @@ public interface DoActions {
     void errorUsuario();
     void jugar(String sJugar);
     void morir();
+    void resetear();
 }

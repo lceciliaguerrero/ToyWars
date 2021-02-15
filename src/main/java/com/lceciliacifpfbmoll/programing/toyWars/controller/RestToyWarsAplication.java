@@ -1,8 +1,6 @@
 package com.lceciliacifpfbmoll.programing.toyWars.controller;
 
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Estatus;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Toy;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.User;
+import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.service.GameService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +17,9 @@ public class RestToyWarsAplication {
     }
 
     @PostMapping("/new")
-    public void newRest() {
+    public void newRest(@ModelAttribute Toy toy) {
+        addFullToy(toy);
+        toy.resetear();
     }
 
     @PostMapping("/render")
@@ -27,11 +27,12 @@ public class RestToyWarsAplication {
 
     }
 
-    @PostMapping("/do/{action}")  ///rest/do/{action}
-    public void doRest() {
+    @PostMapping("/do/{action}")  //rest/do/{action}
+    public String doRest(@PathVariable Action action) {
+        /*return gameService.getUserActions();*/
+        return gameService.doAction(action);
     }
-
-    @PostMapping("/getCurrentStatus")
+    @GetMapping("/getCurrentStatus")
     public void getCurrentStatusRest() {
     }
 

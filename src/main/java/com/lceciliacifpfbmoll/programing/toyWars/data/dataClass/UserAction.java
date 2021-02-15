@@ -1,25 +1,28 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
+import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 public class UserAction {
     //Atributos publicos estaticos final:
     private static final AtomicLong count = new AtomicLong(0);
 
-    //Atributos privados no estaticos:
-    private Long registryAction;
-    private String typeToy;
-    private Integer pointsStart;
-    private Integer pointsObtained;
+    //Atributos privados estaticos:
+    private static Toy toy;
 
-    //Constructores (alt+insertar)
-    public UserAction() {
-    }
+    //Atributos privados no estaticos:
+    private Long registryAction; //111111L => integer largo
+    private ToysType toysType;
+    private Integer pointsStart;
+    private Integer actualPoints;
 
     //Geters y Seters (alt+insertar)
     public static AtomicLong getCount() {
         return count;
     }
+
+
 
     public Long getRegistryAction() {
         return registryAction;
@@ -29,12 +32,12 @@ public class UserAction {
         this.registryAction = registryAction;
     }
 
-    public String getTypeToy() {
-        return typeToy;
+    public ToysType getToysType() {
+        return toysType;
     }
 
-    public void setTypeToy(String typeToy) {
-        this.typeToy = typeToy;
+    public void setToysType(ToysType toysType) {
+        this.toysType = toysType;
     }
 
     public Integer getPointsStart() {
@@ -45,21 +48,22 @@ public class UserAction {
         this.pointsStart = pointsStart;
     }
 
-    public Integer getPointsObtained() {
-        return pointsObtained;
+    public Integer getActualPoints() {
+        return actualPoints;
     }
 
-    public void setPointsObtained(Integer pointsObtained) {
-        this.pointsObtained = pointsObtained;
+    public void setActualPoints(Integer actualPoints) {
+        this.actualPoints = actualPoints;
     }
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //Methods insertData
-    public UserAction(String typeToy, String pointsObtained) {
+    public UserAction() {
         this.setRegistryAction(count.incrementAndGet());
-        this.setTypeToy(typeToy.toLowerCase().trim());
-        this.setPointsStart(100);
-        this.setPointsObtained(Integer.parseInt(pointsObtained.toLowerCase().trim()));
+        ToysType optionToysType = toy.getToysType();
+        this.setToysType(optionToysType);
+        this.setPointsStart(ToyWars.beginningPoints);
+        this.setActualPoints(toy.getActualPoints());
     }
 
     //Methods printData
@@ -69,9 +73,9 @@ public class UserAction {
         System.out.println("Impresión del UserAction " + this.getRegistryAction() + ".");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
-        System.out.println("Su tipo de juguete es: " + this.getTypeToy() + ".");
+        System.out.println("Su tipo de juguete es: " + this.getToysType() + ".");
         System.out.println("Su puntos de inicio son: " + this.getPointsStart() + ".");
-        System.out.println("Su puntos obtenidos son: " + this.getPointsObtained() + ".");
+        System.out.println("Su puntos obtenidos son: " + this.getActualPoints() + ".");
         System.out.println("");
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
