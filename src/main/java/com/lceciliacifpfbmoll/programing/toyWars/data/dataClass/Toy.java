@@ -197,8 +197,18 @@ public class Toy extends LifeBeing {
     //enum Action
     //alimentar();
     @Override
-    public void alimentar(String actionsAlimento) {
-
+    public void alimentar(String sAlimentar) {
+        if (StringUtils.equals(sAlimentar, "manzana")) {
+            this.setActualPoints(ToyWars.beginningPoints + 5); //aumenta en puntos + 5
+        } else if (StringUtils.equals(sAlimentar, "ensalada de frutas")) {
+            this.setActualPoints(ToyWars.beginningPoints + 20); //aumenta en puntos + 20
+        } else if (StringUtils.equals(sAlimentar, "frutos secos")) {
+            this.setActualPoints(ToyWars.beginningPoints + 15); //aumenta en puntos + 15
+        } else if (StringUtils.equals(sAlimentar, "donut")) {
+            this.setActualPoints(ToyWars.beginningPoints - 15); //disminuye - 15
+        } else if (StringUtils.equals(sAlimentar, "galletas")) {
+            this.setActualPoints(ToyWars.beginningPoints - 10); //disminuye - 10
+        }
     }
 
     //caminar();
