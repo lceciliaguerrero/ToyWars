@@ -1,6 +1,6 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass;
 
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Gender;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Gender;
 
 public abstract class Person {
     //Atributos privados no estaticos:

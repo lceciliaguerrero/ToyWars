@@ -1,10 +1,10 @@
-package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
+package com.lceciliacifpfbmoll.programing.toyWars.data.enumClass;
 
 import org.apache.commons.lang3.StringUtils;
 
 public enum Action {
     //Constantes del actions de lifeBoing
-    ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR;
+    ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR, RESETEAR;
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //toString();

@@ -1,9 +1,9 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass;
 
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.DoActions;
+import com.lceciliacifpfbmoll.programing.toyWars.data.interfaceClass.DoActions;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Estatus;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.Gender;
-import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.IRender;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Gender;
+import com.lceciliacifpfbmoll.programing.toyWars.data.interfaceClass.IRender;
 
 public abstract class LifeBeing implements DoActions, IRender {
     //Atributos privados no estaticos:

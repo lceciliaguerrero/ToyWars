@@ -1,6 +1,7 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
 import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.ToysType;
 
 import java.util.concurrent.atomic.AtomicLong;
 

@@ -1,4 +1,4 @@
-package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
+package com.lceciliacifpfbmoll.programing.toyWars.data.enumClass;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,6 +1,6 @@
-package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
+package com.lceciliacifpfbmoll.programing.toyWars.data.interfaceClass;
 
-import java.util.List;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 
 public interface IRender {
     //-------------------------------------------------->> Methods <<--------------------------------------------------

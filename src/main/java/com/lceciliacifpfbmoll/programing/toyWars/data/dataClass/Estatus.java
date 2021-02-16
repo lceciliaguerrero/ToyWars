@@ -1,6 +1,8 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
 
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
+
 public class Estatus {
     //Atributos privados estaticos
     private static Toy toy;

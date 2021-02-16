@@ -1,6 +1,8 @@
 package com.lceciliacifpfbmoll.programing.toyWars.controller;
 
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 import com.lceciliacifpfbmoll.programing.toyWars.service.GameService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

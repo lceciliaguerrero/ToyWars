@@ -1,10 +1,10 @@
-package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
+package com.lceciliacifpfbmoll.programing.toyWars.data.enumClass;
 
 import org.apache.commons.lang3.StringUtils;
 
-public enum Gender {
-    //Constantes del genero
-    FEMENINO, MASCULINO, NINGUNO;
+public enum ToysType {
+    //Constantes del ToysType
+    POKEMON, TAMAGOTCHI, GIJOE, TOYS_TYPE_ERROR;
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //toString();

@@ -2,6 +2,10 @@ package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
 import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
 import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Gender;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.ToysType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

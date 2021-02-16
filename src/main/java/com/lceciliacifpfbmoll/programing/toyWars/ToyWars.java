@@ -1,6 +1,7 @@
 package com.lceciliacifpfbmoll.programing.toyWars;
 
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
 import com.lceciliacifpfbmoll.programing.toyWars.helper.ConsoleUtils;
 import com.lceciliacifpfbmoll.programing.toyWars.helper.LoggerUtils;
 
