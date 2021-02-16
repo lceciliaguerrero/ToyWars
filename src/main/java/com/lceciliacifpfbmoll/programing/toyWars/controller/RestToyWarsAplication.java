@@ -159,7 +159,7 @@ public class RestToyWarsAplication {
         return null;
     }
 
-//JSON, HTML, CONSOLE, ERROR =DINAMICOS ¿COMO DECIRLE? ANOTACIÓN@PATHVARIABLE RENDERTYPE RENDER
+    //JSON, HTML, CONSOLE, ERROR =DINAMICOS ¿COMO DECIRLE? ANOTACIÓN@PATHVARIABLE RENDERTYPE RENDER
 
     /*@PostMapping("/newUser")
     public List<User> addFullUser() {
