@@ -95,16 +95,19 @@ public class RestToyWarsAplication {
     }
 
     //getToys();
+    @GetMapping("/listToys")
     public List<Toy> getToys() {
         return gameService.getToysRest();
     }
 
     //getUserActions();
+    @GetMapping("/listUserActions")
     public List<UserAction> getUserActions() {
         return gameService.getUserActionsRest();
     }
 
     //getEstatuses();
+    @GetMapping("/listEstatuses")
     public List<Estatus> getEstatuses() {
         return gameService.getEstatusesRest();
     }
