@@ -16,6 +16,12 @@ public class Toy extends LifeBeing {
     //Atributos privados estaticos final:
     private static final AtomicLong count = new AtomicLong(0);
 
+    //Atributos no privados estaticos:
+    private Action action;
+    private Estatus estatus;
+    private ToysType toysType;
+    private Integer actualPoints;
+
     //Constructores: (alt+insertar)
     /*public Toy(Estatus estatus, Long identification, String name, Gender gender, Action action, Estatus estatus1, ToysType toysType, Integer actualPoints) {
         super(estatus, identification, name, gender);
@@ -56,7 +62,16 @@ public class Toy extends LifeBeing {
     public void setToysType(ToysType toysType) {
         this.toysType = toysType;
     }
+    public Integer getActualPoints() {
+        return actualPoints;
+    }
 
+    public void setActualPoints(Integer actualPoints) {
+        this.actualPoints = actualPoints;
+    }
+
+
+    //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
@@ -81,8 +96,8 @@ public class Toy extends LifeBeing {
                 // sabrá el genero del jugete, en este caso, del Toy.
                 this.setGender(Gender.NINGUNO);
             }
-        } catch (Exception firstExceptionInsertDataTamagotchi) {
-            System.out.println(firstExceptionInsertDataTamagotchi.getMessage());
+        } catch (Exception firstExceptionInsertDataToy) {
+            System.out.println(firstExceptionInsertDataToy.getMessage());
         }
 
         //String toysType
@@ -190,7 +205,7 @@ public class Toy extends LifeBeing {
     @Override
     public void caminar(Integer iCaminar) {
         if (iCaminar == 0) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints()); //no aumenta la vida
+            this.setActualPoints(ToyWars.beginningPoints); //no aumenta la vida
         } else if (iCaminar > 0 & iCaminar <= 1) {
             this.setActualPoints(ToyWars.beginningPoints + 10); //aumenta la vida + 10
         } else if (iCaminar > 1 & iCaminar <= 2) {
@@ -218,11 +233,11 @@ public class Toy extends LifeBeing {
     @Override
     public void enfermar(String sEnfermar) {
         if (StringUtils.equals(sEnfermar, "gripe")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() - 20); //disminuye la vida - 20
+            this.setActualPoints(ToyWars.beginningPoints - 20); //disminuye la vida - 20
         } else if (StringUtils.equals(sEnfermar, "catarro")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() - 10); //disminuye la vida - 10
+            this.setActualPoints(ToyWars.beginningPoints - 10); //disminuye la vida - 10
         } else if (StringUtils.equals(sEnfermar, "cancer")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() - estatus.getActualPoints()); //disminuye a cero
+            this.setActualPoints(ToyWars.beginningPoints - getActualPoints()); //disminuye a cero
         }
     }
 
@@ -230,11 +245,11 @@ public class Toy extends LifeBeing {
     @Override
     public void jugar(String sJugar) {
         if (StringUtils.equals(sJugar, "videojuegos")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() - 15); //disminuye la vida - 15
+            this.setActualPoints(ToyWars.beginningPoints - 15); //disminuye la vida - 15
         } else if (StringUtils.equals(sJugar, "futbol")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 30); //aumenta la vida + 30
+            this.setActualPoints(ToyWars.beginningPoints + 30); //aumenta la vida + 30
         } else if (StringUtils.equals(sJugar, "piano")) {
-            this.estatus.setActualPoints(getEstatus().getActualPoints() + 20); //aumenta + 20
+            this.setActualPoints(ToyWars.beginningPoints + 20); //aumenta + 20
         }
     }
 

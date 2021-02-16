@@ -71,7 +71,7 @@ public class UserAction {
     public void printUserActionConsole() {
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("Impresión del UserAction " + this.getRegistryAction() + ".");
+        System.out.println("Impresión de la acción del usuario " + this.getRegistryAction() + ".");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
         System.out.println("Su tipo de juguete es: " + this.getToysType() + ".");

@@ -9,7 +9,7 @@ public class Estatus {
 
     //Atributos privados no estaticos
     private Action currentAction;
-    private Integer actualPoints;
+
 
     //principio puntos y puntos actuales.
 
@@ -30,13 +30,7 @@ public class Estatus {
         this.currentAction = currentAction;
     }
 
-    public Integer getActualPoints() {
-        return actualPoints;
-    }
 
-    public void setActualPoints(Integer actualPoints) {
-        this.actualPoints = actualPoints;
-    }
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //Methods insertData

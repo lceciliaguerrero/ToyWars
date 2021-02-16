@@ -118,8 +118,9 @@ public class GameService {
         return ToyWars.TOYS_LINKED_LIST;
     }
 
-    //getUserActions();
-    public List<UserAction> getUserActions() {
+    //getUserActionsRest();
+    //KEVIN
+    public List<UserAction> getUserActionsRest() {
         return ToyWars.USER_ACTIONS_LINKED_LIST;
     }
 
@@ -140,8 +141,11 @@ public class GameService {
     }
 
     //resetLifeBeing();
-    public LifeBeing resetLifeBeing() {
-        return null;
+    public void resetLifeBeing() {
+        LifeBeing lifeBeing = new Toy();
+        lifeBeing.setIdentification(null);
+        lifeBeing.setName(null);
+        lifeBeing.setGender(null);
     }
 
     //render();
@@ -150,8 +154,9 @@ public class GameService {
     }
 
     //getStatus();
-    public LifeBeing getStatus() {
-        return null;
+    public Estatus getStatus() {
+        /*return toy.getEstatus();*/
+        return currentLifeBeing.getEstatus();
     }
 
     //getActions();
@@ -300,7 +305,45 @@ public class GameService {
             }
         }
         return null;
+    }*/
+
+    public Action[] getActions() {
+        return Action.values();
     }
+
+
+
+
+    /*
+    public ArrayList<Action> getActions() {
+        ACTIONS_ARRAY_LIST[] actions = Action.values();
+        ArrayList<String> stringAction = new ArrayList<>();
+        for (ACTIONS_ARRAY_LIST actions) {
+            stringAction.add(day.toString());
+        }
+        return stringAction;
+
+
+    public ArrayList<String> enumIteration() {
+        Days[] days = Days.values();
+        ArrayList<String> stringDay = new ArrayList<String>();
+        for (Days day : days) {
+            stringDay.add(day.toString());
+        }
+        return stringDay;
+
+
+    public List<Action> getActions(Action action) {
+        if (action == Action.ALIMENTAR) {
+
+            return ToyWars.ACTIONS_ARRAY_LIST - Action.ALIMENTAR;
+        }
+    }
+
+
+
+    }
+    }*/
 
     //doAction(Action action);
     public void doAction(Action action) {

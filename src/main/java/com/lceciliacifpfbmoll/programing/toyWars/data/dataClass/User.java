@@ -11,7 +11,8 @@ public class User extends Person {
     private static final AtomicLong count = new AtomicLong(0);
     
     //Atributos privados estaticos:
-    private String password;
+    private String keyUser;
+    private Toy toy;
 
     //Constructores: (alt+insertar)
     public User() {
