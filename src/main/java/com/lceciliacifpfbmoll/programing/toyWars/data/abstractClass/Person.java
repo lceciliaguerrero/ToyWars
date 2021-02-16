@@ -93,4 +93,8 @@ public abstract class Person {
     public void setGeneroPersona(Gender generoPersona) {
         this.generoPersona = generoPersona;
     }
+
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //Methods insertData
+    public abstract void printConsolePerson();
 }

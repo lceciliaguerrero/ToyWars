@@ -13,6 +13,6 @@ class UserTest {
                "20", "111111111",
                "laura@ejemplo.com", "femenino", "laura2021",
                "", "", "");
-       user.printUserConsole();
+       user.printConsolePerson();
     }
 }

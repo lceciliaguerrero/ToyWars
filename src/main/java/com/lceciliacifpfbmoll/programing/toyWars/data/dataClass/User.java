@@ -17,6 +17,7 @@ public class User extends Person {
     public User() {
     }
 
+
     //Geters y Seters (alt+insertar)
     public static AtomicLong getCount() {
         return count;
@@ -38,19 +39,35 @@ public class User extends Person {
         this.toy = toy;
     }
 
+    //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
     public User(String firstNamePersona, String lastNamePersona, String agePersona,
                 String mobilePhoneNumberPersona, String emailPersona,
                 String generoPersona, String keyUser, String nameToy,
                 String genderToy, String toysType) {
+        //count.incrementAndGet() ---> incrementa uno al Long
         this.setIdentificationPersona(count.incrementAndGet());
+
+        //String firstNamePersona
         this.setFirstNamePersona(firstNamePersona.toLowerCase().trim());
+
+        //String lastNamePersona
         this.setLastNamePersona(lastNamePersona.toLowerCase().trim());
+
+        //String agePersona
         this.setAgePersona(Integer.parseInt(agePersona.toLowerCase().trim()));
+
+        //String mobilePhoneNumberPersona
         this.setMobilePhoneNumberPersona(mobilePhoneNumberPersona.toLowerCase().trim());
+
+        //String emailPersona
         this.setEmailPersona(emailPersona.toLowerCase().trim());
+
+        //String generoPersona
         String optionGeneroPersona = generoPersona.toLowerCase().trim();
+
         try {
             if (StringUtils.equals(optionGeneroPersona, "femenino") ||
                     StringUtils.equals(optionGeneroPersona, "mujer") ||
@@ -72,7 +89,8 @@ public class User extends Person {
     }
 
     //Methods printData
-    public void printUserConsole() {
+    @Override
+    public void printConsolePerson() {
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("Impresión del User " + this.getIdentificationPersona() + ".");

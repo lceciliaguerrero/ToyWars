@@ -58,6 +58,7 @@ public class Toy extends LifeBeing {
     }
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
     public Toy(String name, String gender, String toysType) {
         ///count
@@ -148,7 +149,8 @@ public class Toy extends LifeBeing {
     }
 
     //Methods printData
-    public void printTConsole() {
+    @Override
+    public void printTConsoleLifeBeing() {
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("Impresión del Toy " + this.getIdentification() + ".");
@@ -167,19 +169,24 @@ public class Toy extends LifeBeing {
     }
 
 
-
-
+    //-----------------------------------------------------------------------------------------------------------------
+    //---------------------------------------->> Methods interface DoActions <<----------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
+    //DoActions
+    //getCurrentActions();
     @Override
     public List<Action> getCurrentActions() {
         return ToyWars.ACTIONS_ARRAY_LIST;
     }
 
-    //DoActions
+    //enum Action
+    //alimentar();
     @Override
     public void alimentar(String actionsAlimento) {
 
     }
 
+    //caminar();
     @Override
     public void caminar(Integer iCaminar) {
         if (iCaminar == 0) {
@@ -195,6 +202,7 @@ public class Toy extends LifeBeing {
         }
     }
 
+    //dormir();
     @Override
     public void dormir(Integer iDormir) {
         if (iDormir >= 6 & iDormir <= 8) {
@@ -206,6 +214,7 @@ public class Toy extends LifeBeing {
         }
     }
 
+    //enfermar();
     @Override
     public void enfermar(String sEnfermar) {
         if (StringUtils.equals(sEnfermar, "gripe")) {
@@ -217,11 +226,7 @@ public class Toy extends LifeBeing {
         }
     }
 
-    @Override
-    public void errorUsuario() {
-        //Todo pabina web error
-    }
-
+    //jugar();
     @Override
     public void jugar(String sJugar) {
         if (StringUtils.equals(sJugar, "videojuegos")) {
@@ -233,16 +238,109 @@ public class Toy extends LifeBeing {
         }
     }
 
+    //errorUsuario();
+    @Override
+    public void errorUsuario() {
+        //Todo pabina web error
+    }
+
+    //morir();
     @Override
     public void morir() {
-        this.estatus.setActualPoints(getEstatus().getActualPoints() - estatus.getActualPoints()); //aumenta la vida + 0 puntos
+        this.setActualPoints(ToyWars.beginningPoints - getActualPoints()); //aumenta la vida + 0 puntos
+    }
+
+    //resetear()
+    @Override
+    public void resetear() {
+        this.setIdentification(null);
+        this.setName(null);
+        this.setGender(null);
     }
 
 
-    /**
-     * Todo
-     *
-     */
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------->> Methods interface IRender <<-----------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
+
+    /*@Override
+    public String doRender(RenderType renderType) {
+        //switch HTML, JSON, CONSOLE, RENDER_TYPE_ERROR;
+        //return renderType.values();
+        switch (renderType) {
+            case HTML:
+                break;
+            case JSON:
+                break;
+            case CONSOLE:
+                break;
+            case RENDER_TYPE_ERROR:
+                break;
+            default:
+                break;
+        }
+        return renderType.toString();
+    }*/
+
+    //IRender
+    @Override
+    public void doRender(RenderType renderType) {
+        //switch HTML, JSON, CONSOLE, RENDER_TYPE_ERROR;
+        //return renderType.values();
+        try {
+            switch (renderType) {
+                case HTML:
+                    printHtml();
+                    break;
+
+                case JSON:
+                    printJson();
+                    break;
+
+                case CONSOLE:
+                    printConsole();
+                    break;
+
+                default:
+                    System.out.println("La opción indicada no es correcta, por favor, indica otra.");
+                    System.out.println("'HTML', 'JSON' o 'CONSOLE'");
+                    //RenderType.RENDER_TYPE_ERROR.values();
+                    renderType.values();
+                    break;
+
+            }
 
 
+        } catch (Exception firstExceptionToyDoRender) {
+            System.out.println(firstExceptionToyDoRender.getMessage());
+            printError();
+        }
+
+    }
+
+
+    //enum RenderType
+    //printHtml();
+    @Override
+    public void printHtml() {
+
+    }
+
+    //printJson();
+    @Override
+    public void printJson() {
+
+    }
+
+    //printConsole();
+    @Override
+    public void printConsole() {
+
+    }
+
+    //printError();
+    @Override
+    public void printError() {
+
+    }
 }

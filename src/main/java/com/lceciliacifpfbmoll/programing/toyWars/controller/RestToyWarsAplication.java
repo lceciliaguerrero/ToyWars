@@ -29,11 +29,18 @@ public class RestToyWarsAplication {
 
     }
 
-    @PostMapping("/do/{action}")  //rest/do/{action}
+    /*@PostMapping("/do/{action}")  //rest/do/{action}
     public String doRest(@PathVariable Action action) {
-        /*return gameService.getUserActions();*/
+        //return gameService.getUserActions();
         return gameService.doAction(action);
+    }*/
+
+    @PostMapping("/do/{action}")  //rest/do/{action}
+    public void doRest(@PathVariable Action action) {
+        /*return gameService.getUserActions();*/
+        gameService.doAction(action);
     }
+
     @GetMapping("/getCurrentStatus")
     public void getCurrentStatusRest() {
     }

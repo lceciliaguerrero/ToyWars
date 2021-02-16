@@ -68,5 +68,6 @@ public abstract class LifeBeing implements DoActions, IRender {
 
 
     //-------------------------------------------------->> Methods <<--------------------------------------------------
-
+    //Methods insertData
+    public abstract void printTConsoleLifeBeing();
 }

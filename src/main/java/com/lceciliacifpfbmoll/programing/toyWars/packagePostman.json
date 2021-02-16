@@ -1,0 +1,30 @@
+{
+  "name": "toyWars",
+  "version": "1.0.0",
+  "dependencies": {
+
+    //Postman ==> Body ==> raw
+    /*"user": {
+      "firstNamePersona": "",
+      "lastNamePersona": "",
+      "agePersona": "",
+      "mobilePhoneNumberPersona": "",
+      "emailPersona": "",
+      "generoPersona": "",
+      "keyUser": "",
+      "nameToy": "",
+      "genderToy": "",
+      "toysType": ""
+    },
+
+    "toy": {
+      "name": "",
+      "gender": "",
+      "toysType": ""
+    },
+
+    "toy": {
+      "actions": ""
+    }*/
+  }
+}

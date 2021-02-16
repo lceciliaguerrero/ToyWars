@@ -15,7 +15,7 @@ public class GameService {
     private List<UserAction> userAction;
     private Integer maxPoints;
     private LifeBeing currentLifeBeing;
-    private Action actions;
+    private Action action;
     private Toy toy;
     private Estatus estatus;
 
@@ -44,12 +44,20 @@ public class GameService {
         this.currentLifeBeing = currentLifeBeing;
     }
 
-    public void setActions(Action actions) {
-        this.actions = actions;
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
     }
 
     public Toy getToy() {
         return toy;
+    }
+
+    public void setToy(Toy toy) {
+        this.toy = toy;
     }
 
     public Estatus getEstatus() {
@@ -60,10 +68,13 @@ public class GameService {
         this.estatus = estatus;
     }
 
-    //-------------------------------------------------->> Methods <<--------------------------------------------------
+
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------->> Methods package dataClass <<-----------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
-    //setUser(User user);
-    public boolean setUser(User user) {
+    //setUserRest(User user);
+    public boolean setUserRest(User user) {
         if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
                 StringUtils.isEmpty(user.getLastNamePersona()) ||
                 //StringUtils.isEmpty(cliente.getAgePersona().toString()) ||
@@ -78,12 +89,16 @@ public class GameService {
         }
     }
 
-    //setToy(Toy toy);
-    public boolean setToy(Toy toy) {
-        if (toy == null || StringUtils.isEmpty(toy.getGender().toString()) ||
+    //setToyRest(Toy toy);
+    public boolean setToyRest(Toy toy) {
+        //Todo Revisar quiero que si StringUtils.isEmpty(toy.getAction().toString())
+        // esta mal directamente 'return false;' pero también si... (no se explicar con
+        // palabras) mirar RestToyWarsAplication y Toy
+        if (toy == null ||
+                StringUtils.isEmpty(toy.getGender().toString()) ||
                 StringUtils.isEmpty(toy.getName()) ||
                 StringUtils.isEmpty(toy.getToysType().toString()) ||
-        StringUtils.isEmpty(toy.getAction().toString())) {
+                StringUtils.isEmpty(toy.getAction().toString())) {
             return false;
         } else {
             ToyWars.TOYS_LINKED_LIST.add(toy);
@@ -93,13 +108,13 @@ public class GameService {
 
 
     //Methods pintData
-    //getUsers()
-    public List<User> getUsers() {
+    //getUsersRest()
+    public List<User> getUsersRest() {
         return ToyWars.USERS_LINKED_LIST;
     }
 
-    //getToys();
-    public List<Toy> getToys() {
+    //getToysRest();
+    public List<Toy> getToysRest() {
         return ToyWars.TOYS_LINKED_LIST;
     }
 
@@ -108,17 +123,20 @@ public class GameService {
         return ToyWars.USER_ACTIONS_LINKED_LIST;
     }
 
-    //getUserActionsVoid();
-    public void getUserActionsVoid() {
-        for (UserAction userAction : ToyWars.USER_ACTIONS_LINKED_LIST) {
-            userAction.printUserActionConsole();
-        }
+    //getEstatusesRest();
+    public List<Estatus> getEstatusesRest() {
+        return ToyWars.ESTATUS_LINKED_LIST;
     }
 
 
-    //getEstatuses();
-    public List<Estatus> getEstatuses() {
-        return ToyWars.ESTATUS_LINKED_LIST;
+    //-----------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------->> Methods <<--------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
+    //getUserActions();
+    public void getUserActions() {
+        for (UserAction userAction : ToyWars.USER_ACTIONS_LINKED_LIST) {
+            userAction.printUserActionConsole();
+        }
     }
 
     //resetLifeBeing();
@@ -291,43 +309,81 @@ public class GameService {
 
             }
         }*/
-        switch (action) {
-            case ALIMENTAR:
-                System.out.println("¿que quieres comer?: ");
-                String optionAlimentar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
-                currentLifeBeing.alimentar(optionAlimentar);
-                break;
-            case CAMINAR:
-                System.out.println("¿cuantas horas quieres caminar?: ");
-                Integer optionCaminar = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
-                currentLifeBeing.caminar(optionCaminar);
-                break;
-            case DORMIR:
-                System.out.println("¿cuantas horas quieres dormir?: ");
-                Integer optionDormir = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
-                currentLifeBeing.dormir(optionDormir);
-                break;
-            case ENFERMAR:
-                System.out.println("¿qué enfermedad tienes?: ");
-                String optionEnfermar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
-                currentLifeBeing.enfermar(optionEnfermar);
-                break;
-            case JUGAR:
-                System.out.println("¿qué quieres jugar?: ");
-                String optionJugar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
-                currentLifeBeing.jugar(optionJugar);
-                break;
-            case MORIR:
-                currentLifeBeing.morir();
-                break;
-            case RESETEAR:
-                currentLifeBeing.resetear();
-            default:
-                break;
+        //switch ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR, RESETEAR;
+        try {
+            switch (action) {
+                case ALIMENTAR:
+                    System.out.println("¿que quieres comer?: ");
+                    String optionAlimentar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //currentLifeBeing.alimentar(optionAlimentar);
+                    //toy.alimentar(optionAlimentar);
+                    getToy().alimentar(optionAlimentar);
+                    break;
 
+                case CAMINAR:
+                    System.out.println("¿cuantas horas quieres caminar?: ");
+                    Integer optionCaminar = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
+                    //currentLifeBeing.caminar(optionCaminar);
+                    //toy.caminar(optionCaminar);
+                    getToy().caminar(optionCaminar);
+                    break;
+
+                case DORMIR:
+                    System.out.println("¿cuantas horas quieres dormir?: ");
+                    Integer optionDormir = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
+                    //currentLifeBeing.dormir(optionDormir);
+                    //toy.dormir(optionDormir);
+                    getToy().dormir(optionDormir);
+                    break;
+
+                case ENFERMAR:
+                    System.out.println("¿qué enfermedad tienes?: ");
+                    String optionEnfermar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //currentLifeBeing.enfermar(optionEnfermar);
+                    //toy.enfermar(optionEnfermar);
+                    getToy().enfermar(optionEnfermar);
+                    break;
+
+                case JUGAR:
+                    System.out.println("¿qué quieres jugar?: ");
+                    String optionJugar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //currentLifeBeing.jugar(optionJugar);
+                    //toy.jugar(optionJugar);
+                    getToy().jugar(optionJugar);
+                    break;
+
+                case MORIR:
+                    //currentLifeBeing.morir();
+                    //toy.morir();
+                    getToy().morir();
+                    break;
+
+                case RESETEAR:
+                    //currentLifeBeing.resetear();
+                    //toy.resetear();
+                    getToy().resetear();
+                    break;
+
+                default:
+                    System.out.println("La opción indicada no es correcta, por favor, indica otra.");
+                    System.out.println("'ALIMENTAR', 'CAMINAR', 'DORMIR', 'ENFERMAR', 'JUGAR', 'MORIR' o 'RESETEAR'");
+                    //Action.ERRORUSUARIO.values();
+                    action.values();
+                    break;
+
+            }
+
+
+        } catch (Exception firstExceptionGameServiceDoAction) {
+            System.out.println(firstExceptionGameServiceDoAction.getMessage());
+            //currentLifeBeing.errorUsuario();
+            //toy.errorUsuario();
+            getToy().errorUsuario();
         }
+
         Estatus firstEstatus = new Estatus();
-        toy.setEstatus(firstEstatus);
+        //toy.setEstatus(firstEstatus);
+        getToy().setEstatus(firstEstatus);
 
 
         //hace una acción
@@ -337,9 +393,4 @@ public class GameService {
         //agrego a la lista de userActions ese userAction que he creado.
 
     }
-
-
-    //-------------------------------------------------->> Methods <<--------------------------------------------------
-
-
 }
