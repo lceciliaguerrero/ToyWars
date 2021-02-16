@@ -272,7 +272,7 @@ public class Toy extends LifeBeing {
     //morir();
     @Override
     public void morir() {
-        this.setActualPoints(ToyWars.beginningPoints - getActualPoints()); //aumenta la vida + 0 puntos
+        this.setActualPoints(ToyWars.beginningPoints - getActualPoints()); //disminuye la vida a 0 puntos
     }
 
     //resetear()
