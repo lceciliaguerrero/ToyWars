@@ -90,6 +90,7 @@ public class RestToyWarsAplication {
 
     //Methods printData
     //getUsers()
+    @GetMapping("/listUsers")
     public List<User> getUsers() {
         return gameService.getUsersRest();
     }
