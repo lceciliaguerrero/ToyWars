@@ -15,13 +15,18 @@ public class User extends Person {
     private Toy toy;
 
     //Constructores: (alt+insertar)
-    public User(Long identificationPersona, String firstNamePersona, String lastNamePersona, Integer agePersona, String mobilePhoneNumberPersona, String emailPersona, Gender generoPersona, String keyUser, Toy toy) {
-        super(identificationPersona, firstNamePersona, lastNamePersona, agePersona, mobilePhoneNumberPersona, emailPersona, generoPersona);
+    public User(Long identificationPersona, String firstNamePersona, String lastNamePersona,
+                Integer agePersona, String mobilePhoneNumberPersona, String emailPersona,
+                Gender generoPersona, String keyUser, Toy toy) {
+        super(identificationPersona, firstNamePersona, lastNamePersona,
+                agePersona, mobilePhoneNumberPersona, emailPersona, generoPersona);
         this.keyUser = keyUser;
         this.toy = toy;
     }
 
-    public User() {}
+    public User() {
+
+    }
 
     //Geters y Seters (alt+insertar)
     public static AtomicLong getCount() {

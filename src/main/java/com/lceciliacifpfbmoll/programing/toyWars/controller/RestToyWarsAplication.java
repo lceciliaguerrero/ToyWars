@@ -5,6 +5,7 @@ import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 import com.lceciliacifpfbmoll.programing.toyWars.service.GameService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 //spring.mvc.view.suffix=.html
 
 @RestController
-//@RequestMapping(value = "/get/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/get/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestToyWarsAplication {
     // antes de los get
     //Atributo
@@ -95,7 +96,7 @@ public class RestToyWarsAplication {
     @GetMapping("/openNewToyAction")
     public List<Toy> addToyAction(
             @RequestParam(name = "addToyAction", required = false, value = "action", defaultValue = "pokemon") String actionRest) {
-        gameService.setToyRest(new Toy(actionRest));
+        gameService.setToyActionRest(new Toy(actionRest));
         return gameService.getToysRest();
     }
 
@@ -111,6 +112,21 @@ public class RestToyWarsAplication {
         }*/
         ToyWars.TOYS_LINKED_LIST.add(toy);
         gameService.setToyRest(toy);
+        gameService.getToysRest();
+        return true;
+    }
+
+    @PostMapping("/newToyAction")
+    public boolean addFullToyAction(@ModelAttribute Toy toy) {
+        /*if (toy == null ||
+                StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName()) ||
+                StringUtils.isEmpty(toy.getToysType().toString()) ||
+                StringUtils.isEmpty(toy.getAction().toString())) {
+            return false;
+        }*/
+        ToyWars.TOYS_LINKED_LIST.add(toy);
+        gameService.setToyActionRest(toy);
         gameService.getToysRest();
         return true;
     }

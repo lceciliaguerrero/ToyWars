@@ -23,11 +23,15 @@ public class Toy extends LifeBeing {
     private Integer actualPoints;
 
     //Constructores: (alt+insertar)
-    public Toy(Estatus estatus, Long identification, String name, Gender gender, Action action, ToysType toysType, Integer actualPoints) {
+    public Toy(Estatus estatus, Long identification, String name, Gender gender, ToysType toysType, Integer actualPoints) {
         super(estatus, identification, name, gender);
-        this.action = action;
+
         this.toysType = toysType;
         this.actualPoints = actualPoints;
+    }
+
+    public Toy(Action action) {
+        this.action = action;
     }
 
     public Toy() {

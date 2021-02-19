@@ -139,7 +139,7 @@ public class GameService {
         AtomicLong count = new AtomicLong(0);
         Long id = count.incrementAndGet();
         /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
-        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getAction(), toy.getToysType(), toy.getActualPoints());
+        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getToysType(), toy.getActualPoints());
         ToyWars.TOYS_LINKED_LIST.add(toy);
         return true;
     }
@@ -162,7 +162,7 @@ public class GameService {
         AtomicLong count = new AtomicLong(0);
         Long id = count.incrementAndGet();
         /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
-        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getAction(), toy.getToysType(), toy.getActualPoints());
+        Toy firstToy = new Toy(toy.getAction());
         ToyWars.TOYS_LINKED_LIST.add(toy);
         return true;
     }
