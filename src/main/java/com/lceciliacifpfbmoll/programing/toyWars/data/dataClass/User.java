@@ -9,15 +9,19 @@ import java.util.concurrent.atomic.AtomicLong;
 public class User extends Person {
     //Atributos privados estaticos final:
     private static final AtomicLong count = new AtomicLong(0);
-    
+
     //Atributos privados estaticos:
     private String keyUser;
     private Toy toy;
 
     //Constructores: (alt+insertar)
-    public User() {
+    public User(Long identificationPersona, String firstNamePersona, String lastNamePersona, Integer agePersona, String mobilePhoneNumberPersona, String emailPersona, Gender generoPersona, String keyUser, Toy toy) {
+        super(identificationPersona, firstNamePersona, lastNamePersona, agePersona, mobilePhoneNumberPersona, emailPersona, generoPersona);
+        this.keyUser = keyUser;
+        this.toy = toy;
     }
 
+    public User() {}
 
     //Geters y Seters (alt+insertar)
     public static AtomicLong getCount() {
@@ -46,8 +50,7 @@ public class User extends Person {
     //Methods insertData
     public User(String firstNamePersona, String lastNamePersona, String agePersona,
                 String mobilePhoneNumberPersona, String emailPersona,
-                String generoPersona, String keyUser, String nameToy,
-                String genderToy, String toysType) {
+                String generoPersona, String keyUser, String nameToy, String genderToy, String toysType) {
         //count.incrementAndGet() ---> incrementa uno al Long
         this.setIdentificationPersona(count.incrementAndGet());
 
@@ -86,8 +89,14 @@ public class User extends Person {
         }
 
         this.setKeyUser(keyUser.trim());
+
         this.setToy(new Toy(nameToy, genderToy, toysType));
+
     }
+
+   /* public User(String nameToy, String genderToy, String toysType) {
+        this.setToy(new Toy(nameToy, genderToy, toysType));
+    }*/
 
     //Methods printData
     @Override

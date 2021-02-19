@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+    <form action="/newUser" method="post">
+        <fieldset name="isertDataUser">
+            <legend> Insertar datos del User.</legend>
+            <section>
+                <div style="float: left">
+                    <label for="firstNameUser"> nombre del user: </label><br>
+                    <label for="lastNameUser"> apellido del user: </label><br>
+                    <label for="ageUser"> edad del user: </label><br>
+                    <label for="mobilePhoneNumberUser"> teléfono del User: </label><br>
+                    <label for="emailUser"> email del User: </label><br>
+                    <label for="generoUser"> género del User: </label><br>
+                    <label for="keyUser"> contrsseña del User: </label>
+                </div>
+                <div style="float: right">
+                    <input id="firstNameUser" name="firstNamePersona" type="text" placeholder="Escribe el nombre del User."><br>
+                    <input id="lastNameUser" name="lastNamePersona" type="text" placeholder="Escribe el apellido del User."><br>
+                    <input id="ageUser" name="agePersona" type="number" min="1" max="100" placeholder="Escribe la edad del User."><br>
+                    <input id="mobilePhoneNumberUser" name="mobilePhoneNumberPersona" type="tel" pattern="+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}" placeholder="Escribe el numero de teléfono del User."><br>
+                    <input id="emailUser" name="email" type="email" placeholder="Escribe el correo electrónico del User."><br>
+                    <select id="generoUser" name="generoPersona"><!--pattern="[A-Za-z0-9_]@[a-z].[a-z]"-->
+                        <optgroup label="genero ninguno">
+                            <option value="NINGUNO" selected>ninguno</option>
+                        </optgroup>
+                        <optgroup label="genero femenino">
+                            <option value="FEMENINO">femenino</option>
+                        </optgroup>
+                        <optgroup label="genero masculino">
+                            <option value="MASCULINO">masculino</option>
+                        </optgroup>
+                    </select>
+                    <!--<input id="generoUser" name="genero" type="text" placeholder="Seleciona el género del User.">-->
+                    <br><input id="keyUser" name="keyUser" type="password" minlength="8" placeholder="Escribe la contraseña del User.">
+                </div>
+            </section>
+        </fieldset>
+        <button type="submit" value="enviar"> Enviar </button>
+        <!--<input type="submit" value="Enviar">-->
+    </form>
+    <form action="/newToy" method="post">
+        <fieldset name="isertDataToy">
+            <legend> Insertar datos del Toy.</legend>
+            <section>
+                <div style="float: left">
+                    <label for="nameToy"> nombre del Toy: </label><br>
+                    <label for="generoToy"> género del Toy: </label><br>
+                    <label for="actionToy"> estado del Toy: </label><br>
+                    <label for="ageUser"> edad del user: </label><br>
+                    <label for="mobilePhoneNumberUser"> teléfono del User: </label><br>
+                    <label for="emailUser"> email del User: </label><br>
+                    
+                    <label for="keylUser"> contrsseña del User: </label>
+                </div>
+                <div style="float: right">
+                    <input id="nameToy" name="name" type="text" placeholder="Escribe el nombre del Toy."><br>
+                    <select id="generoToy" name="gender">
+                        <!--pattern="[A-Za-z0-9_]@[a-z].[a-z]"-->
+                        <optgroup label="genero ninguno">
+                            <option value="NINGUNO" selected>ninguno</option>
+                        </optgroup>
+                        <optgroup label="genero femenino">
+                            <option value="FEMENINO">femenino</option>
+                        </optgroup>
+                        <optgroup label="genero masculino">
+                            <option value="MASCULINO">masculino</option>
+                        </optgroup>
+                    </select>
+                    <select id="actionToy" name="action">
+                        <option value="ALIMENTAR">alimentar</option>
+                        <option value="CAMINAR">caminar</option>
+                    </select>
+                    <!--<input id="generoUser" name="genero" type="text" placeholder="Seleciona el género del User.">-->
+                    <br><input id="keylUser" name="keyUser" type="password" minlength="8"
+                        placeholder="Escribe la contraseña del User.">
+                </div>
+            </section>
+        </fieldset>
+        <button type="submit" value="enviar"> Enviar </button>
+    </form>
 </body>
 </html>

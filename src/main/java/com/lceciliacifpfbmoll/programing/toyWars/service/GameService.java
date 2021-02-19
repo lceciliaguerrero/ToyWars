@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class GameService {
@@ -75,18 +76,49 @@ public class GameService {
     //Methods insertData
     //setUserRest(User user);
     public boolean setUserRest(User user) {
-        if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
+        /*if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
                 StringUtils.isEmpty(user.getLastNamePersona()) ||
-                //StringUtils.isEmpty(cliente.getAgePersona().toString()) ||
+                StringUtils.isEmpty(user.getAgePersona().toString()) ||
                 StringUtils.isEmpty(user.getMobilePhoneNumberPersona()) ||
                 StringUtils.isEmpty(user.getEmailPersona()) ||
-                //StringUtils.isEmpty(cliente.getGeneroPersona().toString()) ||
+                StringUtils.isEmpty(user.getGeneroPersona().toString()) ||
                 StringUtils.isEmpty(user.getKeyUser())) {
             return false;
         } else {
             ToyWars.USERS_LINKED_LIST.add(user);
             return true;
-        }
+        }*/
+        /**/
+        AtomicLong count = new AtomicLong(0);
+        Long id = count.incrementAndGet();
+        User sUser = new User(id, user.getFirstNamePersona(), user.getLastNamePersona(), user.getAgePersona(),
+                user.getMobilePhoneNumberPersona(), user.getEmailPersona(), user.getGeneroPersona(), user.getKeyUser(), user.getToy());
+        //String number = "6472428223";
+        /*User firtsUser = new User(user.getToy());
+        ToyWars.USERS_LINKED_LIST.add(user);
+        User sUser = new User(id, user.getFirstNamePersona(), user.getLastNamePersona(), user.getAgePersona(),
+                user.getMobilePhoneNumberPersona(), user.getEmailPersona(), user.getGeneroPersona(), user.getKeyUser());
+        ToyWars.USERS_LINKED_LIST.add(user);/**/
+        return true;
+        /*if (!(user == null || (user.getToy() == null || user.getToy().equals( "")))) {
+            User user1 = new User(user.getToy());
+            ToyWars.USERS_LINKED_LIST.add(user);
+            return true;
+        } else if (!(user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
+                StringUtils.isEmpty(user.getLastNamePersona()) ||
+                StringUtils.isEmpty(user.getAgePersona().toString()) ||
+                StringUtils.isEmpty(user.getMobilePhoneNumberPersona()) ||
+                StringUtils.isEmpty(user.getEmailPersona()) ||
+                StringUtils.isEmpty(user.getGeneroPersona().toString()) ||
+                StringUtils.isEmpty(user.getKeyUser()))) {
+            User firtsUser = new User(id, user.getFirstNamePersona(), user.getLastNamePersona(), user.getAgePersona(),
+                    user.getMobilePhoneNumberPersona(), user.getEmailPersona(), user.getGeneroPersona(), user.getKeyUser());
+            ToyWars.USERS_LINKED_LIST.add(user);
+            return true;
+        } else {
+            return false;
+        }*/
+
     }
 
     //setToyRest(Toy toy);
@@ -94,7 +126,7 @@ public class GameService {
         //Todo Revisar quiero que si StringUtils.isEmpty(toy.getAction().toString())
         // esta mal directamente 'return false;' pero también si... (no se explicar con
         // palabras) mirar RestToyWarsAplication y Toy
-        if (toy == null ||
+        /*if (toy == null ||
                 StringUtils.isEmpty(toy.getGender().toString()) ||
                 StringUtils.isEmpty(toy.getName()) ||
                 StringUtils.isEmpty(toy.getToysType().toString()) ||
@@ -103,7 +135,36 @@ public class GameService {
         } else {
             ToyWars.TOYS_LINKED_LIST.add(toy);
             return true;
-        }
+        }*/
+        AtomicLong count = new AtomicLong(0);
+        Long id = count.incrementAndGet();
+        /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
+        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getAction(), toy.getToysType(), toy.getActualPoints());
+        ToyWars.TOYS_LINKED_LIST.add(toy);
+        return true;
+    }
+
+    public boolean setToyActionRest(Toy toy) {
+        //Todo Revisar quiero que si StringUtils.isEmpty(toy.getAction().toString())
+        // esta mal directamente 'return false;' pero también si... (no se explicar con
+        // palabras) mirar RestToyWarsAplication y Toy
+        /*if (toy == null ||
+                StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName()) ||
+                StringUtils.isEmpty(toy.getToysType().toString()) ||
+                StringUtils.isEmpty(toy.getAction().toString())) {
+            return false;
+        } else {
+            ToyWars.TOYS_LINKED_LIST.add(toy);
+            return true;
+        }*/
+
+        AtomicLong count = new AtomicLong(0);
+        Long id = count.incrementAndGet();
+        /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
+        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getAction(), toy.getToysType(), toy.getActualPoints());
+        ToyWars.TOYS_LINKED_LIST.add(toy);
+        return true;
     }
 
 
@@ -134,11 +195,11 @@ public class GameService {
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //-----------------------------------------------------------------------------------------------------------------
     //getUserActions();
-    public void getUserActions() {
+    /*public void getUserActions() {
         for (UserAction userAction : ToyWars.USER_ACTIONS_LINKED_LIST) {
             userAction.printUserActionConsole();
         }
-    }
+    }*/
 
     //resetLifeBeing();
     public void resetLifeBeing() {
@@ -146,16 +207,16 @@ public class GameService {
         lifeBeing.setIdentification(null);
         lifeBeing.setName(null);
         lifeBeing.setGender(null);
-    }
+    }/**/
 
     //render();
-    public LifeBeing render() {
+    /**/public LifeBeing render() {
         return currentLifeBeing;
     }
 
     //getStatus();
     public Estatus getStatus() {
-        /*return toy.getEstatus();*/
+        //*return toy.getEstatus();*/
         return currentLifeBeing.getEstatus();
     }
 
@@ -307,9 +368,9 @@ public class GameService {
         return null;
     }*/
 
-    public Action[] getActions() {
+    /*public Action[] getActions() {
         return Action.values();
-    }
+    }*/
 
 
 
@@ -339,20 +400,18 @@ public class GameService {
             return ToyWars.ACTIONS_ARRAY_LIST - Action.ALIMENTAR;
         }
     }
-
-
-
     }
     }*/
 
     //doAction(Action action);
+    /**/
     public void doAction(Action action) {
         /*for (Estatus estatus : ToyWars.ESTATUS_LINKED_LIST) {
             if (Enum.valueOf(Action.class, estatus.getCurrentAction().toString())) {
 
             }
         }*/
-        //switch ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR, RESETEAR;
+        //switch ALIMENTAR, CAMINAR, DORMIR, ENFERMAR, ERRORUSUARIO, JUGAR, MORIR, RESETEAR;/**/
         try {
             switch (action) {
                 case ALIMENTAR:

@@ -1,17 +1,17 @@
 package com.lceciliacifpfbmoll.programing.toyWars.controller;
 
+import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 import com.lceciliacifpfbmoll.programing.toyWars.service.GameService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/get/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+//@RequestMapping(value = "/get/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestToyWarsAplication {
     // antes de los get
     //Atributo
@@ -47,13 +47,34 @@ public class RestToyWarsAplication {
         return gameService.getUsersRest();
     }
 
+
+/*    @GetMapping("/openNewUserToy")
+    public List<User> addUserToy(
+            @RequestParam(name = "addUserNameToyUser", required = false, value = "nameToyUser", defaultValue = "Bulbasaur") String nameToyUserRest,
+            @RequestParam(name = "addUserGenderToyUser", required = false, value = "genderToyUser", defaultValue = "masculino") String genderToyUserRest,
+            @RequestParam(name = "addUserToysTypeToyUser", required = false, value = "toysTypeToyUser", defaultValue = "pokemon") String toysTypeToyUserRest) {
+        gameService.setUserRest(new User(nameToyUserRest, genderToyUserRest, toysTypeToyUserRest));
+        return gameService.getUsersRest();
+    }*/
+
     //addFullUser();
     @PostMapping("/newUser")
-    public List<User> addFullUser(@ModelAttribute User user) {
-        if (user != null) {
-            gameService.setUserRest(user);
-        }
-        return gameService.getUsersRest();
+    public boolean addFullUser(@ModelAttribute User user) {
+       /* if (user == null || StringUtils.isEmpty(user.getFirstNamePersona()) ||
+                StringUtils.isEmpty(user.getLastNamePersona()) ||
+                user.getAgePersona().equals
+                StringUtils.isEmpty(user.)
+                //StringUtils.isEmpty(user.getMobilePhoneNumberPersona()) ||
+                //StringUtils.isEmpty(user.getEmailPersona()) ||
+                //StringUtils.isEmpty(user.getGeneroPersona().toString()) ||
+                //StringUtils.isEmpty(user.getKeyUser())
+        ) {
+            return false;
+        }*/
+
+        ToyWars.USERS_LINKED_LIST.add(user);
+        gameService.setUserRest(user);
+        return true;
     }
 
 
@@ -69,7 +90,7 @@ public class RestToyWarsAplication {
     }
 
     //addToyAction();
-    @GetMapping("/openNewToy")
+    @GetMapping("/openNewToyAction")
     public List<Toy> addToyAction(
             @RequestParam(name = "addToyAction", required = false, value = "action", defaultValue = "pokemon") String actionRest) {
         gameService.setToyRest(new Toy(actionRest));
@@ -78,11 +99,18 @@ public class RestToyWarsAplication {
 
     //addFullToy();
     @PostMapping("/newToy")
-    public List<Toy> addFullToy(@ModelAttribute Toy toy) {
-        if (toy != null) {
-            gameService.setToyRest(toy);
-        }
-        return gameService.getToysRest();
+    public boolean addFullToy(@ModelAttribute Toy toy) {
+        /*if (toy == null ||
+                StringUtils.isEmpty(toy.getGender().toString()) ||
+                StringUtils.isEmpty(toy.getName()) ||
+                StringUtils.isEmpty(toy.getToysType().toString()) ||
+                StringUtils.isEmpty(toy.getAction().toString())) {
+            return false;
+        }*/
+        ToyWars.TOYS_LINKED_LIST.add(toy);
+        gameService.setToyRest(toy);
+        gameService.getToysRest();
+        return true;
     }
 
 
@@ -161,17 +189,4 @@ public class RestToyWarsAplication {
 
     //JSON, HTML, CONSOLE, ERROR =DINAMICOS ¿COMO DECIRLE? ANOTACIÓN@PATHVARIABLE RENDERTYPE RENDER
 
-    /*@PostMapping("/newUser")
-    public List<User> addFullUser() {
-
-    }*/
-
-
-    /*@PostMapping("/newCliente")
-    public List<Cliente> setFullCliente(@ModelAttribute Cliente cliente) {
-        if (cliente != null) {
-            serviceJavaClassesSecondEvaluationUnitFifth.addCliente(cliente);
-        }
-        return serviceJavaClassesSecondEvaluationUnitFifth.getClientes();
-    }*/
 }

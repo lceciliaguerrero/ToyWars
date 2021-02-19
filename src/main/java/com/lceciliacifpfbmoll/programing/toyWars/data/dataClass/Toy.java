@@ -18,18 +18,17 @@ public class Toy extends LifeBeing {
 
     //Atributos no privados estaticos:
     private Action action;
-    private Estatus estatus;
+    //private Estatus estatus;
     private ToysType toysType;
     private Integer actualPoints;
 
     //Constructores: (alt+insertar)
-    /*public Toy(Estatus estatus, Long identification, String name, Gender gender, Action action, Estatus estatus1, ToysType toysType, Integer actualPoints) {
+    public Toy(Estatus estatus, Long identification, String name, Gender gender, Action action, ToysType toysType, Integer actualPoints) {
         super(estatus, identification, name, gender);
         this.action = action;
-        this.estatus = estatus1;
         this.toysType = toysType;
         this.actualPoints = actualPoints;
-    }*/
+    }
 
     public Toy() {
     }
@@ -47,13 +46,13 @@ public class Toy extends LifeBeing {
         this.action = action;
     }
 
-    public Estatus getEstatus() {
+    /*public Estatus getEstatus() {
         return estatus;
     }
 
     public void setEstatus(Estatus estatus) {
         this.estatus = estatus;
-    }
+    }*/
 
     public ToysType getToysType() {
         return toysType;
@@ -75,7 +74,8 @@ public class Toy extends LifeBeing {
     //-------------------------------------------------->> Methods <<--------------------------------------------------
     //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
-    public Toy(String name, String gender, String toysType) {
+    /**/
+     public Toy(String name, String gender, String toysType) {
         ///count
         this.setIdentification(count.incrementAndGet());
 
@@ -122,9 +122,8 @@ public class Toy extends LifeBeing {
         //this.setEstatus(estatus.setActualPoints(ToyWars.beginningPoints));
         this.setActualPoints(ToyWars.beginningPoints);
 
-
         //this.setEstatus(estatus.setCurrentAction(getAction()));
-        this.estatus.setCurrentAction(getAction());
+
     }
 
     public Toy(String actions) {
