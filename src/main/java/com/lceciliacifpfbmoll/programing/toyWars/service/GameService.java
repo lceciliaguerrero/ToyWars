@@ -160,7 +160,7 @@ public class GameService {
     }
 
 
-    //Methods pintData
+    //Methods prointData
     //getUsersRest()
     public List<User> getUsersRest() {
         return ToyWars.USERS_LINKED_LIST;
@@ -474,7 +474,6 @@ public class GameService {
                     break;
 
             }
-
 
         } catch (Exception firstExceptionGameServiceDoAction) {
             System.out.println(firstExceptionGameServiceDoAction.getMessage());

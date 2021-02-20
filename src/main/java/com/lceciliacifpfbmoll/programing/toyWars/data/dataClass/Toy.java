@@ -291,7 +291,8 @@ public class Toy extends LifeBeing {
     //errorUsuario();
     @Override
     public void errorUsuario() {
-        //Todo pabina web error
+        System.out.println("El usuario se ha equivocado, vuelve a intentarlo :)");
+        //Todo pagina web error
     }
 
     //morir();
@@ -373,6 +374,7 @@ public class Toy extends LifeBeing {
     public String printHtml() {
         return "printHtml()";
     }
+
 
     //printJson();
     @Override
