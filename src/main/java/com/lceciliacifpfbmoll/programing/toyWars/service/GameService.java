@@ -4,6 +4,7 @@ import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
 import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
+import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -123,9 +124,6 @@ public class GameService {
 
     //setToyRest(Toy toy);
     public boolean setToyRest(Toy toy) {
-        //Todo Revisar quiero que si StringUtils.isEmpty(toy.getAction().toString())
-        // esta mal directamente 'return false;' pero también si... (no se explicar con
-        // palabras) mirar RestToyWarsAplication y Toy
         /*if (toy == null ||
                 StringUtils.isEmpty(toy.getGender().toString()) ||
                 StringUtils.isEmpty(toy.getName()) ||
@@ -145,9 +143,6 @@ public class GameService {
     }
 
     public boolean setToyActionRest(Toy toy) {
-        //Todo Revisar quiero que si StringUtils.isEmpty(toy.getAction().toString())
-        // esta mal directamente 'return false;' pero también si... (no se explicar con
-        // palabras) mirar RestToyWarsAplication y Toy
         /*if (toy == null ||
                 StringUtils.isEmpty(toy.getGender().toString()) ||
                 StringUtils.isEmpty(toy.getName()) ||
@@ -158,9 +153,6 @@ public class GameService {
             ToyWars.TOYS_LINKED_LIST.add(toy);
             return true;
         }*/
-
-        AtomicLong count = new AtomicLong(0);
-        Long id = count.incrementAndGet();
         /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
         Toy firstToy = new Toy(toy.getAction());
         ToyWars.TOYS_LINKED_LIST.add(toy);
@@ -190,6 +182,10 @@ public class GameService {
         return ToyWars.ESTATUS_LINKED_LIST;
     }
 
+    public List<Action> getActionRest() {
+        return ToyWars.ACTIONS_ARRAY_LIST;
+    }
+
 
     //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------->> Methods <<--------------------------------------------------
@@ -203,21 +199,20 @@ public class GameService {
 
     //resetLifeBeing();
     public void resetLifeBeing() {
-        LifeBeing lifeBeing = new Toy();
-        lifeBeing.setIdentification(null);
-        lifeBeing.setName(null);
-        lifeBeing.setGender(null);
+        getCurrentLifeBeing().setIdentification(null);
+        getCurrentLifeBeing().setName(null);
+        getCurrentLifeBeing().setGender(null);
     }/**/
 
     //render();
-    /**/public LifeBeing render() {
-        return currentLifeBeing;
+    public String render(RenderType renderType) {
+        return getToy().doRender(renderType);
     }
 
     //getStatus();
     public Estatus getStatus() {
         //*return toy.getEstatus();*/
-        return currentLifeBeing.getEstatus();
+        return getToy().getEstatus();
     }
 
     //getActions();
@@ -415,43 +410,48 @@ public class GameService {
         try {
             switch (action) {
                 case ALIMENTAR:
-                    System.out.println("¿que quieres comer?: ");
-                    String optionAlimentar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //System.out.println("¿que quieres comer?: ");
+                    //String optionAlimentar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
                     //currentLifeBeing.alimentar(optionAlimentar);
                     //toy.alimentar(optionAlimentar);
-                    getToy().alimentar(optionAlimentar);
+                    //getToy().alimentar(optionAlimentar);
+                    getToy().alimentar();
                     break;
 
                 case CAMINAR:
-                    System.out.println("¿cuantas horas quieres caminar?: ");
-                    Integer optionCaminar = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
+                    //System.out.println("¿cuantas horas quieres caminar?: ");
+                    //Integer optionCaminar = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
                     //currentLifeBeing.caminar(optionCaminar);
                     //toy.caminar(optionCaminar);
-                    getToy().caminar(optionCaminar);
+                    //getToy().caminar(optionCaminar);
+                    getToy().caminar();
                     break;
 
                 case DORMIR:
-                    System.out.println("¿cuantas horas quieres dormir?: ");
-                    Integer optionDormir = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
+                    //System.out.println("¿cuantas horas quieres dormir?: ");
+                    //Integer optionDormir = Integer.parseInt(ToyWars.consoleUtils.getLectorNextLineLowerCase());
                     //currentLifeBeing.dormir(optionDormir);
                     //toy.dormir(optionDormir);
-                    getToy().dormir(optionDormir);
+                    //getToy().dormir(optionDormir);
+                    getToy().dormir();
                     break;
 
                 case ENFERMAR:
-                    System.out.println("¿qué enfermedad tienes?: ");
-                    String optionEnfermar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //System.out.println("¿qué enfermedad tienes?: ");
+                    //String optionEnfermar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
                     //currentLifeBeing.enfermar(optionEnfermar);
                     //toy.enfermar(optionEnfermar);
-                    getToy().enfermar(optionEnfermar);
+                    //getToy().enfermar(optionEnfermar);
+                    getToy().enfermar();
                     break;
 
                 case JUGAR:
-                    System.out.println("¿qué quieres jugar?: ");
-                    String optionJugar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
+                    //System.out.println("¿qué quieres jugar?: ");
+                    //String optionJugar = ToyWars.consoleUtils.getLectorNextLineLowerCase();
                     //currentLifeBeing.jugar(optionJugar);
                     //toy.jugar(optionJugar);
-                    getToy().jugar(optionJugar);
+                    //getToy().jugar(optionJugar);
+                    getToy().jugar();
                     break;
 
                 case MORIR:

@@ -167,11 +167,10 @@ public class RestToyWarsAplication {
     // para acceder a los datos
 
 
-    /*@GetMapping("/getAction")
+    @GetMapping("/getAction")
     public List<Action> getActionsRest() {
-        Toy toy = new Toy();
-        return toy.getAction();
-    }*/
+        return gameService.getActionRest();
+    }/**/
 
     @PostMapping("/new")
     public void newRest(@ModelAttribute Toy toy) {
@@ -179,9 +178,14 @@ public class RestToyWarsAplication {
         toy.resetear();
     }
      // /rest/render/JSON
-    @GetMapping("/render/{mode}")
+   /* @GetMapping("/render/{mode}")
     public String renderRest(@PathVariable RenderType renderType) {
         return renderType.toString();
+    }*/
+
+    @GetMapping("/render/{mode}")
+    public void renderRest(@PathVariable RenderType mode) {
+        gameService.getToy().doRender(mode);
     }
 
     /*@PostMapping("/do/{action}")  //rest/do/{action}
@@ -197,14 +201,14 @@ public class RestToyWarsAplication {
     }
 
     @GetMapping("/getCurrentStatus")
-    public void getCurrentStatusRest() {
+    public Estatus getCurrentStatusRest() {
+        return gameService.getStatus();
     }
 
     @GetMapping("/getStats")
     public List<Estatus> getStatsRest() {
-        return null;
+        return gameService.getEstatusesRest();
     }
-
     //JSON, HTML, CONSOLE, ERROR =DINAMICOS ¿COMO DECIRLE? ANOTACIÓN@PATHVARIABLE RENDERTYPE RENDER
 
 }

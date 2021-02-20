@@ -1,5 +1,6 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.dataClass;
 
+import com.lceciliacifpfbmoll.programing.toyWars.ToyWars;
 import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.Person;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Gender;
 import org.apache.commons.lang3.StringUtils;
@@ -106,6 +107,23 @@ public class User extends Person {
     //Methods printData
     @Override
     public void printConsolePerson() {
+        String printUser =
+                "\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "Impresión del User " + this.getIdentificationPersona() + ".\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "\n" +
+                        "Su nombre es: " + this.getFirstNamePersona() + ", " +
+                        this.getLastNamePersona() + ".\n" +
+                        "Su edad es: " + this.getAgePersona() + " años." + "\n" +
+                        "Su número de teléfono móvil es: " + this.getMobilePhoneNumberPersona() + ".\n" +
+                        "El correo electrónico es: " + this.getEmailPersona() + ".\n" +
+                        "El género es: " + this.getGeneroPersona() + ".\n" +
+                        "Su contrseña es: " + this.getKeyUser() + ".\n" + "\n" + "\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "\n" +
+                        "\n";
+
         System.out.println("");
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("Impresión del User " + this.getIdentificationPersona() + ".");
@@ -124,5 +142,8 @@ public class User extends Person {
         System.out.println("<<---------------------------------------------------------->>");
         System.out.println("");
         System.out.println("");
+        System.out.println(printUser);
+        ToyWars.loggerUtils.logerFactoryInfoToString(printUser);
     }
+
 }

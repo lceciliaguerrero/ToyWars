@@ -12,7 +12,7 @@ import java.util.List;
 public class ToyWars {
     //Packege data
     public static final List<UserAction> USER_ACTIONS_LINKED_LIST = new LinkedList<>();
-    public static final ArrayList<Action> ACTIONS_ARRAY_LIST = new ArrayList<>();
+    public static final List<Action> ACTIONS_ARRAY_LIST = new ArrayList<>();
     public static final List<User> USERS_LINKED_LIST = new LinkedList<>();
     public static final List<Toy> TOYS_LINKED_LIST = new LinkedList<>();
     public static final List<Estatus> ESTATUS_LINKED_LIST = new LinkedList<>();

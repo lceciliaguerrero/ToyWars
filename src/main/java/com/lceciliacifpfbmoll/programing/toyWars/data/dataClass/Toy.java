@@ -25,7 +25,6 @@ public class Toy extends LifeBeing {
     //Constructores: (alt+insertar)
     public Toy(Estatus estatus, Long identification, String name, Gender gender, ToysType toysType, Integer actualPoints) {
         super(estatus, identification, name, gender);
-
         this.toysType = toysType;
         this.actualPoints = actualPoints;
     }
@@ -199,7 +198,7 @@ public class Toy extends LifeBeing {
 
     //enum Action
     //alimentar();
-    @Override
+    /*@Override
     public void alimentar(String sAlimentar) {
         if (StringUtils.equals(sAlimentar, "manzana")) {
             this.setActualPoints(ToyWars.beginningPoints + 5); //aumenta en puntos + 5
@@ -212,10 +211,15 @@ public class Toy extends LifeBeing {
         } else if (StringUtils.equals(sAlimentar, "galletas")) {
             this.setActualPoints(ToyWars.beginningPoints - 10); //disminuye - 10
         }
+    }*/
+
+    @Override
+    public void alimentar() {
+        this.setActualPoints(ToyWars.beginningPoints + 5); //aumenta en puntos + 5
     }
 
     //caminar();
-    @Override
+    /*@Override
     public void caminar(Integer iCaminar) {
         if (iCaminar == 0) {
             this.setActualPoints(ToyWars.beginningPoints); //no aumenta la vida
@@ -228,10 +232,15 @@ public class Toy extends LifeBeing {
         } else if (iCaminar > 3 & iCaminar <= 4) {
             this.setActualPoints(ToyWars.beginningPoints + 50); //aumenta la vida + 35
         }
+    }*/
+
+    @Override
+    public void caminar() {
+        this.setActualPoints(ToyWars.beginningPoints + 10); //aumenta la vida + 10
     }
 
     //dormir();
-    @Override
+    /*@Override
     public void dormir(Integer iDormir) {
         if (iDormir >= 6 & iDormir <= 8) {
             this.setActualPoints(ToyWars.beginningPoints + 25); //aumenta la vida + 25
@@ -240,10 +249,15 @@ public class Toy extends LifeBeing {
         } else if (iDormir > 10 & iDormir <= 12) {
             this.setActualPoints(ToyWars.beginningPoints - 35); //disminuye la vida - 15
         }
+    }*/
+
+    @Override
+    public void dormir() {
+        this.setActualPoints(ToyWars.beginningPoints + 25); //aumenta la vida + 25
     }
 
     //enfermar();
-    @Override
+    /*@Override
     public void enfermar(String sEnfermar) {
         if (StringUtils.equals(sEnfermar, "gripe")) {
             this.setActualPoints(ToyWars.beginningPoints - 20); //disminuye la vida - 20
@@ -252,10 +266,14 @@ public class Toy extends LifeBeing {
         } else if (StringUtils.equals(sEnfermar, "cancer")) {
             this.setActualPoints(ToyWars.beginningPoints - getActualPoints()); //disminuye a cero
         }
+    }*/
+    @Override
+    public void enfermar() {
+        this.setActualPoints(ToyWars.beginningPoints - 10); //disminuye la vida - 10
     }
 
     //jugar();
-    @Override
+    /*@Override
     public void jugar(String sJugar) {
         if (StringUtils.equals(sJugar, "videojuegos")) {
             this.setActualPoints(ToyWars.beginningPoints - 15); //disminuye la vida - 15
@@ -264,6 +282,10 @@ public class Toy extends LifeBeing {
         } else if (StringUtils.equals(sJugar, "piano")) {
             this.setActualPoints(ToyWars.beginningPoints + 20); //aumenta + 20
         }
+    }*/
+    @Override
+    public void jugar() {
+        this.setActualPoints(ToyWars.beginningPoints + 30); //aumenta la vida + 30
     }
 
     //errorUsuario();
@@ -312,22 +334,19 @@ public class Toy extends LifeBeing {
 
     //IRender
     @Override
-    public void doRender(RenderType renderType) {
+    public String doRender(RenderType renderType) {
         //switch HTML, JSON, CONSOLE, RENDER_TYPE_ERROR;
         //return renderType.values();
         try {
             switch (renderType) {
                 case HTML:
-                    printHtml();
-                    break;
+                    return printHtml();
 
                 case JSON:
-                    printJson();
-                    break;
+                    return printJson();
 
                 case CONSOLE:
-                    printConsole();
-                    break;
+                    return printConsole();
 
                 default:
                     System.out.println("La opción indicada no es correcta, por favor, indica otra.");
@@ -344,31 +363,32 @@ public class Toy extends LifeBeing {
             printError();
         }
 
+        return null;
     }
 
 
-    //enum RenderType
+    //enum IRender
     //printHtml();
     @Override
-    public void printHtml() {
-
+    public String printHtml() {
+        return "printHtml()";
     }
 
     //printJson();
     @Override
-    public void printJson() {
-
+    public String printJson() {
+        return "printJson()";
     }
 
     //printConsole();
     @Override
-    public void printConsole() {
-
+    public String printConsole() {
+        return "printConsole()";
     }
 
     //printError();
     @Override
-    public void printError() {
-
+    public String printError() {
+        return "printError()";
     }
 }

@@ -1,5 +1,6 @@
 package com.lceciliacifpfbmoll.programing.toyWars.data.interfaceClass;
 
+import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 
 public interface IRender {
@@ -8,18 +9,18 @@ public interface IRender {
     //-----> clase LifeBeing <-----
     //doRender();
     //String doRender(RenderType renderType);
-    void doRender(RenderType renderType);
+    String doRender(RenderType renderType);
 
     //RenderType
     //printHtml();
-    void printHtml();
+    String printHtml();
 
     //printJson();
-    void printJson();
+    String printJson();
 
     //printConsole();
-    void printConsole();
+    String printConsole();
 
     //printError();
-    void printError();
+    String printError();
 }
