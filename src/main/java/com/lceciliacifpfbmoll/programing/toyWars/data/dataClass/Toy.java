@@ -64,6 +64,7 @@ public class Toy extends LifeBeing {
     public void setToysType(ToysType toysType) {
         this.toysType = toysType;
     }
+
     public Integer getActualPoints() {
         return actualPoints;
     }
@@ -78,7 +79,7 @@ public class Toy extends LifeBeing {
     //-----------------------------------------------------------------------------------------------------------------
     //Methods insertData
     /**/
-     public Toy(String name, String gender, String toysType) {
+    public Toy(String name, String gender, String toysType) {
         ///count
         this.setIdentification(count.incrementAndGet());
 
@@ -168,21 +169,24 @@ public class Toy extends LifeBeing {
     //Methods printData
     @Override
     public void printTConsoleLifeBeing() {
-        System.out.println("");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("Impresión del Toy " + this.getIdentification() + ".");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("");
-        System.out.println("Su nomre es: " + this.getName() + ".");
-        System.out.println("Su género es: " + this.getGender().toString() + ".");
-        System.out.println("Su acion es: " + this.getAction().toString() + ".");
-        System.out.println("Sus puntos actuales son: " + this.getActualPoints() + ".");
-        System.out.println("Su acción es: " + this.getEstatus().getCurrentAction() + ".");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("");
-        System.out.println("");
+        String printToy =
+                "\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "Impresión del Toy " + this.getIdentification() + ".\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "\n" +
+                        "Su nombre es: " + this.getName() + ".\n" +
+                        "Su género es: " + this.getGender().toString() + ".\n" +
+                        "Su ación es: " + this.getAction().toString() + ".\n" +
+                        "Sus puntos actuales son: " + this.getActualPoints() + ".\n" +
+                        "Su acción es: " + this.getEstatus().getCurrentAction() + ".\n" +
+                        "\n" +
+                        "\n" +
+                        "<<---------------------------------------------------------->>\n" +
+                        "\n" +
+                        "\n";
+        System.out.println(printToy);
+        ToyWars.loggerUtils.logerFactoryInfoToString(printToy);
     }
 
 

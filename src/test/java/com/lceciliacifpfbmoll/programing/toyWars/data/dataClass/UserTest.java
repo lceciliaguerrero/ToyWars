@@ -13,9 +13,9 @@ class UserTest {
 
        /*List<User> data = */
 
-       User user = new User();/*"Laura", "Cecilia Guerrero",
-        "20", "111111111",
-                "laura@ejemplo.com", "femenino", "laura2021", "";*/
+       User user = new User("Laura", "Cecilia Guerrero",
+               "20", "111111111",
+               "laura@ejemplo.com", "femenino", "laura2021", "Bog", "femenino", "pokemon");/*, "";*/
        user.printConsolePerson();
 
        /*User toyUser = new User("Bog", "femenino", "pokemon");

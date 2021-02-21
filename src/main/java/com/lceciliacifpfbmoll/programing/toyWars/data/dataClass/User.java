@@ -113,37 +113,18 @@ public class User extends Person {
                         "Impresión del User " + this.getIdentificationPersona() + ".\n" +
                         "<<---------------------------------------------------------->>\n" +
                         "\n" +
-                        "Su nombre es: " + this.getFirstNamePersona() + ", " +
-                        this.getLastNamePersona() + ".\n" +
+                        "Su nombre es: " + this.getFirstNamePersona() + ", " + this.getLastNamePersona() + ".\n" +
                         "Su edad es: " + this.getAgePersona() + " años." + "\n" +
                         "Su número de teléfono móvil es: " + this.getMobilePhoneNumberPersona() + ".\n" +
                         "El correo electrónico es: " + this.getEmailPersona() + ".\n" +
                         "El género es: " + this.getGeneroPersona() + ".\n" +
-                        "Su contrseña es: " + this.getKeyUser() + ".\n" + "\n" + "\n" +
+                        "Su contrseña es: " + this.getKeyUser() + ".\n" +
+                        "\n" +
+                        "\n" +
                         "<<---------------------------------------------------------->>\n" +
                         "\n" +
                         "\n";
-
-        System.out.println("");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("Impresión del User " + this.getIdentificationPersona() + ".");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("");
-        System.out.println("Su nombre es: " + this.getFirstNamePersona() + ", " +
-                this.getLastNamePersona() + ".");
-        System.out.println("Su edad es: " + this.getAgePersona() + " años.");
-        System.out.println("Su número de teléfono móvil es: " +
-                this.getMobilePhoneNumberPersona() + ".");
-        System.out.println("El correo electrónico es: " + this.getEmailPersona() + ".");
-        System.out.println("El género es: " + this.getGeneroPersona() + ".");
-        System.out.println("Su contrseña es: " + this.getKeyUser() + ".");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("<<---------------------------------------------------------->>");
-        System.out.println("");
-        System.out.println("");
         System.out.println(printUser);
         ToyWars.loggerUtils.logerFactoryInfoToString(printUser);
     }
-
 }
