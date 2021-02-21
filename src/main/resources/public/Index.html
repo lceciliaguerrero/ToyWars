@@ -12,11 +12,6 @@
 <header>
     <p>Centro integrado de formación profesional Francesc de Borja Moll.</p>
 </header>
-<!--
-    <nav>
-
-    </nav>
-    -->
 <aside>
     <h3 href="#insetarDatosUser">Insertar datos del User.</h3>
     <button type="button" id="expandirDatosUser" onclick="expandUser()">Maximizar</button>
@@ -33,64 +28,61 @@
 <main>
     <h1>Insrtar Datos</h1>
     <section id="formulariosEsenciales">
-        <div  id="insetarDatosUser">
+        <div id="insetarDatosUser">
             <h2>Insertar datos del User.</h2>
-            <form class="extendedInsetarDatosUser" action="/get//newUser" method="post">
+            <form id="insetarDatosUserForm" class="extendedInsetarDatosUser" action="/newUser" method="post">
                 <fieldset name="isertDataUser">
                     <div style="float: left">
-                        <label for="firstNameUser"> nombre del User: </label><br />
-                        <label for="lastNameUser"> apellido del User: </label><br />
-                        <label for="ageUser"> edad del User: </label><br />
-                        <label for="mobilePhoneNumberUser"> teléfono del User: </label><br />
-                        <label for="emailUser"> email del User: </label><br />
-                        <label for="generoUser"> género del User: </label><br />
+                        <label for="firstNameUser"> nombre del User: </label><br/>
+                        <label for="lastNameUser"> apellido del User: </label><br/>
+                        <label for="ageUser"> edad del User: </label><br/>
+                        <label for="mobilePhoneNumberUser"> teléfono del User: </label><br/>
+                        <label for="emailUser"> email del User: </label><br/>
+                        <label for="generoUser"> género del User: </label><br/>
                         <label for="keyUser"> contrsseña del User: </label>
                     </div>
                     <div style="float: right">
                         <input class="input" id="firstNameUser" name="firstNamePersona" type="text"
-                               placeholder="Escribe el nombre del User." /><br />
+                               placeholder="Escribe el nombre del User."/><br/>
                         <input id="lastNameUser" name="lastNamePersona" type="text"
-                               placeholder="Escribe el apellido del User." /><br />
+                               placeholder="Escribe el apellido del User."/><br/>
                         <input id="ageUser" name="agePersona" type="number" min="1" max="100"
-                               placeholder="Escribe la edad del User." /><br />
+                               placeholder="Escribe la edad del User."/><br/>
                         <input id="mobilePhoneNumberUser" name="mobilePhoneNumberPersona" type="tel"
                                pattern="+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}"
-                               placeholder="Escribe el numero de teléfono del User." /><br />
-                        <input id="emailUser" name="email" type="email"
-                               placeholder="Escribe el correo electrónico del User." /><br />
+                               placeholder="Escribe el numero de teléfono del User."/><br/>
+                        <input id="emailUser" name="emailPersona" type="email"
+                               placeholder="Escribe el correo electrónico del User."/><br/>
                         <select id="generoUser" name="generoPersona">
-                            <!--pattern="[A-Za-z0-9_]@[a-z].[a-z]"-->
                             <option value="NINGUNO" selected>ninguno</option>
                             <option value="FEMENINO">femenino</option>
                             <option value="MASCULINO">masculino</option>
-                        </select><br />
-                        <!--<input id="generoUser" name="genero" type="text" placeholder="Seleciona el género del User.">-->
+                        </select><br/>
                         <input id="keyUser" name="keyUser" type="password" minlength="8"
-                               placeholder="Escribe la contraseña del User." />
+                               placeholder="Escribe la contraseña del User."/>
                     </div>
+                    <p></p>
                 </fieldset>
                 <button type="submit" value="enviar">Enviar</button>
-                <!--<input type="submit" value="Enviar">-->
             </form>
         </div>
         <div id="insetarDatosToy">
             <h2>Insertar datos del Toy.</h2>
-            <form class="extendedInsetarDatosToy" action="/get//newToy" method="post">
+            <form class="extendedInsetarDatosToy" action="/newToy" method="post">
                 <fieldset name="isertDataToy">
                     <div style="float: left">
-                        <label for="nameToy"> nombre del Toy: </label><br />
-                        <label for="generoToy"> género del Toy: </label><br />
+                        <label for="nameToy"> nombre del Toy: </label><br/>
+                        <label for="generoToy"> género del Toy: </label><br/>
                         <label for="typeToyToy"> tipo de Toy: </label>
                     </div>
                     <div style="float: right">
                         <input id="nameToy" name="name" type="text"
-                               placeholder="Escribe el nombre del Toy." /><br />
+                               placeholder="Escribe el nombre del Toy."/><br/>
                         <select id="generoToy" name="gender">
-                            <!--pattern="[A-Za-z0-9_]@[a-z].[a-z]"-->
                             <option value="NINGUNO" selected>ninguno</option>
                             <option value="FEMENINO">femenino</option>
                             <option value="MASCULINO">masculino</option>
-                        </select><br />
+                        </select><br/>
                         <select id="typeToyToy" name="toysType">
                             <option value="POKEMON">pokemon</option>
                             <option value="TAMAGOTCHI">tamagotchi</option>
@@ -99,7 +91,6 @@
                                 error del tipo de Toy
                             </option>
                         </select>
-                        <!--<input id="generoUser" name="genero" type="text" placeholder="Seleciona el género del User.">-->
                     </div>
                 </fieldset>
                 <button type="submit" value="enviar">Enviar</button>
@@ -109,7 +100,7 @@
     <section id="formulariosNoEsenciales">
         <div id="insetarDatosActionToy">
             <h2>Insertar datos de la acción del Toy.</h2>
-            <form class="extendedInsetarDatosActionToy" action="/get//newToyAction" method="post">
+            <form class="extendedInsetarDatosActionToy" action="/newToyAction" method="post">
                 <fieldset name="isertDataToy">
                     <legend>Insertar datos de la acción del Toy.</legend>
                     <section>
@@ -119,48 +110,24 @@
                         <div style="float: right">
                             <select id="actionToy" name="action">
                                 <optgroup label="Acciones">
-                                    <option value="ALIMENTAR" label="Alimentar">alimentar</option>
-                                    <option value="CAMINAR" label="Caminar">caminar</option>
-                                    <option value="DORMIR" label="Dormir">dormir</option>
-                                    <option value="ENFERMAR" label="Enfermar">enfermar</option>
-                                    <option value="JUGAR" label="Jugar">jugar</option>
+                                    <option class="actionToyAcciones" value="ALIMENTAR" label="Alimentar">alimentar</option>
+                                    <option class="actionToyAcciones" value="CAMINAR" label="Caminar">caminar</option>
+                                    <option class="actionToyAcciones" value="DORMIR" label="Dormir">dormir</option>
+                                    <option class="actionToyAcciones" value="ENFERMAR" label="Enfermar">enfermar</option>
+                                    <option class="actionToyAcciones" value="JUGAR" label="Jugar">jugar</option>
                                 </optgroup>
                                 <optgroup label="Opciones">
                                     <option value="MORIR" label="Morir">morir</option>
                                     <option value="RESETEAR" label="Resetear">resetear</option>
-                                    <option value="ERRORUSUARIO" label="Error de Usuario">
-                                        error del usuario
-                                    </option>
+                                    <option value="ERRORUSUARIO" label="Error de Usuario">error del usuario</option>
                                 </optgroup>
                             </select>
-                            <!--<input id="generoUser" name="genero" type="text" placeholder="Seleciona el género del User.">-->
                         </div>
                     </section>
                 </fieldset>
                 <button type="submit" value="enviar">Enviar</button>
             </form>
         </div>
-
-        <section id="acciones">
-            <!--<form action="/do/" method="post">
-                        <fieldset>
-                            <legend> Insertar la acción del toy.</legend>
-                            <div>
-                                <label for="alimentar">¿Que quieres comer?</label>
-                            </div>
-                            <div>
-                                <select id="alimentar">
-                                    <option value="MANZANA">manzana</option>
-                                    <option value="ENSALADA_FRUTAS">ensalada de frutas</option>
-                                    <option value="FRUTOS_SECOS">frutos secos</option>
-                                    <option value="DONUT">donuts</option>
-                                    <option value="GALLETAS">galletas</option>
-                                </select>
-                            </div>
-                        </fieldset>
-                    </form>-->
-            <button type="button" onclick="dataActionD()">hacer</button>
-        </section>
     </section>
 </main>
 <footer></footer>

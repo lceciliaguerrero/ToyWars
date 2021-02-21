@@ -1,43 +1,28 @@
+function actionToyAlimentar() {
 
-
-/*function dataAction() {
-    fetch("/do/{action}")
-        .then(response=>response.json())
-        .then(data=>{
-            console.log("fetchfinish");
-            console.log(data);
-            let content="";
-            data.forEach(item=>{
-                content+=`
-                    <p>${item.isbn}-${item.title}-${item.year}</p>`;
-            });
-            document.getElementById('library').innerHTML=content;
-        });
-}*/
-
-
-
-function getActions() {
-    fetch("/get/getAction")
-        .then(value => value.json())
-        .then(data => {
-            actionsToy = data
+    let acciones = document.getElementsByClassName('actionToyAcciones');
+    acciones.forEach(action => {
+        action.addEventListener("click", () => {
+            fetch(`/do/${action.value}`)
         })
+    });
 }
 
-function dataActionD(action) {
-    fetch(`/get/do/${action}`)
-        .then(doActionsDataAction => doActionsDataAction.json())
-        .then(data => {
-            let contenidoDActionsDataAction = "";
-            data.forEach(actionData => {
-                contenidoDActionsDataAction += `<input type="submit" value="${actionData}" onclick="/get/doActions'${actionData}'">`;
-            });
-            document.getElementById("acciones").innerHTML = contenidoDActionsDataAction;
+function inserUser() {
+    let insertDataUserForm = document.getElementByid('insetarDatosUserForm');
+    let nombre = insertDataUserFom.firstNamePersona.value;
+    let apellido = insertDataUserFom.lastNamePersona.value;
+    let edad = insertDataUserFom.agePersona.value;
+    let numeroTelefono = insertDataUserFom.mobilePhoneNumberPersona.value;
+    let email = insertDataUserForm.emailPersona.value;
+    let genero = insertDataUserForm.generoPersona.value;
+    let clave = insertDataUserForm.keyUser.value;
+
+    insertDataUserForm.addEventListener('submit', () => {
+        fetch('/newUser', {
+            method:"post",
+            body: {nombre, apellido, edad, numeroTelefono, email, genero, clave}
         })
-
-}
-
-function doActions(action) {
-    fetch(`/get/do/${action}`)
+            .then (value => value.json())
+    });
 }

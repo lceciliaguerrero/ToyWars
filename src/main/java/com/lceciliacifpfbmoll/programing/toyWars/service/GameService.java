@@ -5,7 +5,6 @@ import com.lceciliacifpfbmoll.programing.toyWars.data.abstractClass.LifeBeing;
 import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -136,8 +135,9 @@ public class GameService {
         }*/
         AtomicLong count = new AtomicLong(0);
         Long id = count.incrementAndGet();
+        Integer actualPoint = ToyWars.beginningPoints;
         /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
-        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getToysType(), toy.getActualPoints());
+        Toy firstToy = new Toy(toy.getEstatus(), id, toy.getName(), toy.getGender(), toy.getToysType(), actualPoint);
         ToyWars.TOYS_LINKED_LIST.add(toy);
         return true;
     }
@@ -154,6 +154,7 @@ public class GameService {
             return true;
         }*/
         /*Toy toy1 = new Toy(toy.getName(), toy.getGender().toString(), toy.getToysType().toString());*/
+
         Toy firstToy = new Toy(toy.getAction());
         ToyWars.TOYS_LINKED_LIST.add(toy);
         return true;

@@ -5,16 +5,11 @@ import com.lceciliacifpfbmoll.programing.toyWars.data.dataClass.*;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.Action;
 import com.lceciliacifpfbmoll.programing.toyWars.data.enumClass.RenderType;
 import com.lceciliacifpfbmoll.programing.toyWars.service.GameService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//application.properties
-//spring.mvc.view.suffix=.html
-
 @RestController
-@RequestMapping(value = "/get/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestToyWarsAplication {
     // antes de los get
     //Atributo
@@ -178,7 +173,7 @@ public class RestToyWarsAplication {
         toy.resetear();
     }
      // /rest/render/JSON
-   /* @GetMapping("/render/{mode}")
+   /*@GetMapping("/render/{mode}")
     public String renderRest(@PathVariable RenderType renderType) {
         return renderType.toString();
     }*/
