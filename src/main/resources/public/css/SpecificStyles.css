@@ -1,0 +1,55 @@
+body {
+    background: #ffffff;
+}
+
+header {
+    background: rgb(240, 199, 240);
+    color: rgb(0, 0, 0);
+    border-radius: 2%;
+    margin-top: 1%;
+}
+
+aside {
+    float: left;
+    width: 30%;
+    background: rgb(238, 232, 170);
+    margin-left: 1%;
+    min-height: 1050px;
+}
+
+main {
+    float: left;
+    width: 60%;
+    background: rgb(255, 255, 255);
+    margin-right: 1%;
+    padding: 10px;
+}
+
+footer {
+    clear: left;
+    background: rgb(240, 199, 240);
+    color: rgb(0, 0, 0);
+    border-radius: 2%;
+    margin-block: 1%;
+}
+
+h1, h2, h3 {
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+a {
+    color: rgb(6, 58, 1);
+}
+
+
+button {
+    border-radius: 90%;
+    background: rgb(240, 199, 240);
+    color: rgb(0, 0, 0);
+}

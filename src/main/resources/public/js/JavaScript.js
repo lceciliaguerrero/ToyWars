@@ -1,3 +1,5 @@
+
+
 /*function dataAction() {
     fetch("/do/{action}")
         .then(response=>response.json())
@@ -12,6 +14,8 @@
             document.getElementById('library').innerHTML=content;
         });
 }*/
+
+
 
 function getActions() {
     fetch("/get/getAction")

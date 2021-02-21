@@ -1,0 +1,33 @@
+/* General Styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+}
+
+nav, aside, main {
+    padding: 1%;
+}
+
+header, footer {
+    padding: 10px;
+    text-align: center;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+button {
+    font-family: "Times New Roman", Times, serif;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* imput y select especificos */
+input[type="text"], input[type="number"], input[type="tel"], input[type="email"],  input[type="password"] {
+    min-width: 250px;
+}
+
+
+
+select[id="generoUser"], select[id="generoToy"],  select[id="typeToyToy"], select[id="actionToy"] {
+    min-width: 250px;
+}
