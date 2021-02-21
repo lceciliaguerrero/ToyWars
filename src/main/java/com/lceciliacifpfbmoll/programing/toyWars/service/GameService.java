@@ -203,7 +203,7 @@ public class GameService {
         getCurrentLifeBeing().setIdentification(null);
         getCurrentLifeBeing().setName(null);
         getCurrentLifeBeing().setGender(null);
-    }/**/
+    }
 
     //render();
     public String render(RenderType renderType) {
@@ -363,10 +363,9 @@ public class GameService {
         }
         return null;
     }*/
-
-    /*public Action[] getActions() {
+    public Action[] getActions() {
         return Action.values();
-    }*/
+    }
 
 
 
