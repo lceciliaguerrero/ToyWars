@@ -163,7 +163,7 @@ public class RestToyWarsAplication {
 
 
     @GetMapping("/getAction")
-    public List<Action> getActionsRest() {
+    public List<Action> getActions() {
         return gameService.getActionRest();
     }/**/
 

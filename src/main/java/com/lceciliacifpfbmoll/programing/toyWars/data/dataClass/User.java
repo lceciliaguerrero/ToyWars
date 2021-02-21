@@ -97,12 +97,11 @@ public class User extends Person {
         this.setKeyUser(keyUser.trim());
 
         this.setToy(new Toy(nameToy, genderToy, toysType));
-
     }
 
-   /* public User(String nameToy, String genderToy, String toysType) {
+   /*public User(String nameToy, String genderToy, String toysType) {
         this.setToy(new Toy(nameToy, genderToy, toysType));
-    }*/
+    } */
 
     //Methods printData
     @Override
